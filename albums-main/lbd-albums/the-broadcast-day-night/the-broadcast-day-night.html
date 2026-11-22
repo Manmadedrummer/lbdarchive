@@ -10,6 +10,138 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../../css/style.css">
+<style>
+  .album-hero {
+    display: grid;
+    grid-template-columns: auto minmax(260px, 1fr);
+    align-items: start;
+    gap: 1.5rem;
+    margin: 0.75rem 0 1.25rem;
+    max-width: 960px;
+  }
+  .album-hero .cover {
+    margin: 0;
+    width: fit-content;
+  }
+  .album-hero .cover img {
+    display: block;
+    max-width: 320px;
+    height: auto;
+  }
+  .mix-notes {
+    width: auto;
+    max-width: none;
+    padding: 0.9rem 1.15rem;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 6px;
+    background: rgba(9, 11, 15, 0.78);
+    font-size: 0.95rem;
+    line-height: 1.55;
+  }
+  .mix-notes__title {
+    margin: 0 0 0.55rem;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #f4f4f5;
+  }
+  .mix-notes ul {
+    margin: 0;
+    padding-left: 1.15rem;
+  }
+  .mix-notes li + li {
+    margin-top: 0.55rem;
+  }
+  .mix-notes__daycore {
+    color: #67e8f9;
+  }
+  .mix-notes__nightcore {
+    color: #f472b6;
+  }
+
+  @media (max-width: 680px) {
+    .album-hero {
+      grid-template-columns: 1fr;
+    }
+    .album-hero .cover img {
+      max-width: 100%;
+    }
+  }
+
+  .web-player {
+    margin: 0.75rem 0 1rem;
+    padding: 0.9rem;
+    max-width: 640px;
+    border-radius: 6px;
+    background: #090b0f;
+  }
+  .web-player__now {
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 0.6rem;
+  }
+  .web-player audio {
+    width: 100%;
+    margin-bottom: 0.7rem;
+    color-scheme: dark;
+  }
+  .tracklist {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .tracklist li + li {
+    margin-top: 0.35rem;
+  }
+  .track-btn {
+    width: 100%;
+    text-align: left;
+    padding: 0.45rem 0.65rem;
+    border-radius: 4px;
+    background: #101318;
+    font: inherit;
+    cursor: pointer;
+  }
+
+  /* Daycore: electric cyan (#67e8f9 / #22d3ee) */
+  .web-player--daycore {
+    border: 1px solid #155e75;
+    color: #67e8f9;
+  }
+  .web-player--daycore .web-player__now {
+    color: #a5f3fc;
+  }
+  .web-player--daycore .track-btn {
+    border: 1px solid #164e63;
+    color: #67e8f9;
+  }
+  .web-player--daycore .track-btn:hover,
+  .web-player--daycore .track-btn.is-active {
+    background: #082f49;
+    border-color: #22d3ee;
+    color: #cffafe;
+  }
+
+  /* Nightcore: neon pink / magenta (#f472b6 / #e879f9) */
+  .web-player--nightcore {
+    border: 1px solid #86198f;
+    color: #f472b6;
+  }
+  .web-player--nightcore .web-player__now {
+    color: #f5d0fe;
+  }
+  .web-player--nightcore .track-btn {
+    border: 1px solid #701a75;
+    color: #f472b6;
+  }
+  .web-player--nightcore .track-btn:hover,
+  .web-player--nightcore .track-btn.is-active {
+    background: #2e0a33;
+    border-color: #e879f9;
+    color: #fae8ff;
+  }
+</style>
 </head>
 <body>
 <header class="top">
@@ -19,16 +151,79 @@
 <main>
   <nav class="crumbs" aria-label="Breadcrumb"><a href="../../../index.html">Home</a> <span>/</span> <a href="../../../albums-main/albums-main.html">Albums</a> <span>/</span> <a href="../../../albums-main/lbd-albums/lbd-albums.html">Lethal By Default Albums</a> <span>/</span> The Broadcast (Day~Night)</nav>
   <h1>The Broadcast (Day~Night)</h1>
-  <figure class="cover"><img src="../../../images/albums-main-lbd-albums-the-broadcast-day-night-cover.jpg" alt="The Broadcast (Day~Night) cover art"></figure>
-<h2>The Broadcast (Daycore Remix)</h2>
-<p class="tracks">01. <a href="https://1drv.ms/u/c/b90fa087904a09c7/IQC0SkDei4GkTaZfPE2t3VC7AZXIRmtZXDgQmiezu6M94Mk?e=gVX777" target="_blank" rel="noopener">The Mechanosphere (Daycore Remix)<br></a>02. <a href="https://1drv.ms/u/c/b90fa087904a09c7/IQDdCK-XLTAxSIgat6j0W5ECAfelqCt70Fzd2eQeEhDhcPE?e=SdbZ8t" target="_blank" rel="noopener">Man in The Moon (Daycore Remix)<br></a>03. <a href="https://1drv.ms/u/c/b90fa087904a09c7/IQCOhhjg909oTK8AF3nlbAtiAYQUIu-_xnrX0Q_HiNKh2Po?e=2abYOS" target="_blank" rel="noopener">Day 10,909 (Daycore Remix)<br></a>04. <a href="https://1drv.ms/u/c/b90fa087904a09c7/IQD9ZccETdxxSJbPbXu9UUqkAa8Rfrpn4sdawVJCPuxMaNE?e=weeTgX" target="_blank" rel="noopener">The Homeless Must Go (Daycore Remix)<br></a>05. <a href="https://1drv.ms/u/c/b90fa087904a09c7/IQD58yBRjElZT7VEYsVxktNFATEg_weE58XSxEs6x5nNgGw?e=KgBwuW" target="_blank" rel="noopener">Who Am I (Daycore Remix)</a></p>
-<p class="tracks">06. <a href="https://1drv.ms/u/c/b90fa087904a09c7/IQDUBrACK0FERpPbTVOCPEspAa0CB0cvxLMt1uFGM3-WPzI?e=ZVwZOp" target="_blank" rel="noopener">The Sky&#x27;s The Limit (Daycore Remix)</a></p>
-<figure class="cover"><img src="../../../images/albums-main-lbd-albums-the-broadcast-day-night-cover-2.jpg" alt="The Broadcast (Day~Night) cover art"></figure>
-<h2>The Broadcast (Nightcore Remix)</h2>
-<p class="tracks">01. <a href="https://1drv.ms/u/c/b90fa087904a09c7/IQBIGy0oLGSsTap2sSYYAj4GAYtyD9by1CAk87iK3OGoXw8?e=N7KOPe" target="_blank" rel="noopener">The Mechanosphere (Nightcore Remix)<br></a>02. <a href="https://1drv.ms/u/c/b90fa087904a09c7/IQBQeo5BOaVlQqkt_YwST4k4AaUl-xzNQBpKq0iV_Y1IOv4?e=rRJUvm" target="_blank" rel="noopener">Man in The Moon (Nightcore Remix)<br></a>03. <a href="https://1drv.ms/u/c/b90fa087904a09c7/IQBYjXIChO7HQKtbHOD2R0f1Ad_uxD1_bFcMONVUP9MLYyk?e=AxiZOB" target="_blank" rel="noopener">Day 10,909 (Nightcore Remix)<br></a>04. <a href="https://1drv.ms/u/c/b90fa087904a09c7/IQAVxNqdRLvFTK2E53qm2TGzAYY8Vc0xYPdcWJc396Ve1is?e=n9av8Z" target="_blank" rel="noopener">The Homeless Must Go (Nightcore Remix)<br></a>05. <a href="https://1drv.ms/u/c/b90fa087904a09c7/IQCYI5pqHbO3Tq2za3I09bHMAcGdU0TF_zaiFo49yaWqclk?e=wU5ovq" target="_blank" rel="noopener">Who Am I (Nightcore Remix)</a></p>
-<p class="tracks">06. <a href="https://1drv.ms/u/c/b90fa087904a09c7/IQB42JyQ1g4sRa54T-RL8s7XAbGVqndwHc8J2tiBWXG-Uas?e=tyEwp3" target="_blank" rel="noopener">The Sky&#x27;s The Limit (Nightcore Remix)</a></p>
+
+  <div class="album-hero">
+    <figure class="cover"><img src="../../../images/albums-main-lbd-albums-the-broadcast-day-night-cover.jpg" alt="The Broadcast (Day~Night) cover art"></figure>
+    <div class="mix-notes">
+      <div class="mix-notes__title">Mix Guide</div>
+      <ul>
+        <li><strong class="mix-notes__daycore">Daycore Mix:</strong> Slows the song down and lowers its pitch for a heavier, darker, and more laid-back vibe.</li>
+        <li><strong class="mix-notes__nightcore">Nightcore Mix:</strong> Speeds up the song and raises its pitch for a fast, high-energy sound.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>The Broadcast (Daycore Remix)</h2>
+  <div class="web-player web-player--daycore" data-player="the-broadcast-daycore">
+    <div class="web-player__now">Select a track to play</div>
+    <audio controls preload="metadata"></audio>
+    <ul class="tracklist">
+      <li><button type="button" class="track-btn" data-src="https://archive.org/download/LBD-The-Broadcast-Daycore/01%20Mechanosphere%20%28Daycore%20Remix%29.mp3" data-title="01. The Mechanosphere (Daycore Remix)">01. The Mechanosphere (Daycore Remix)</button></li>
+      <li><button type="button" class="track-btn" data-src="https://archive.org/download/LBD-The-Broadcast-Daycore/02%20Man%20in%20The%20Moon%20%28Daycore%20Remix%29.mp3" data-title="02. Man in The Moon (Daycore Remix)">02. Man in The Moon (Daycore Remix)</button></li>
+      <li><button type="button" class="track-btn" data-src="https://archive.org/download/LBD-The-Broadcast-Daycore/03%20Day%2010909%20%28Daycore%20Remix%29.mp3" data-title="03. Day 10,909 (Daycore Remix)">03. Day 10,909 (Daycore Remix)</button></li>
+      <li><button type="button" class="track-btn" data-src="https://archive.org/download/LBD-The-Broadcast-Daycore/04%20The%20Homeless%20Must%20Go%20%28Daycore%20Remix%29.mp3" data-title="04. The Homeless Must Go (Daycore Remix)">04. The Homeless Must Go (Daycore Remix)</button></li>
+      <li><button type="button" class="track-btn" data-src="https://archive.org/download/LBD-The-Broadcast-Daycore/05%20Who%20Am%20I%20%28Daycore%20Remix%29.mp3" data-title="05. Who Am I (Daycore Remix)">05. Who Am I (Daycore Remix)</button></li>
+      <li><button type="button" class="track-btn" data-src="https://archive.org/download/LBD-The-Broadcast-Daycore/06%20Sky%27s%20The%20Limit%20%28Daycore%20Remix%29.mp3" data-title="06. The Sky's The Limit (Daycore Remix)">06. The Sky's The Limit (Daycore Remix)</button></li>
+    </ul>
+  </div>
+
+  <figure class="cover"><img src="../../../images/albums-main-lbd-albums-the-broadcast-day-night-cover-2.jpg" alt="The Broadcast (Day~Night) cover art"></figure>
+
+  <h2>The Broadcast (Nightcore Remix)</h2>
+  <div class="web-player web-player--nightcore" data-player="the-broadcast-nightcore">
+    <div class="web-player__now">Select a track to play</div>
+    <audio controls preload="metadata"></audio>
+    <ul class="tracklist">
+      <li><button type="button" class="track-btn" data-src="https://archive.org/download/LBD-The-Brodcast-Nightcore/01%20The%20Mechanosphere%20%28Nightcore%29.mp3" data-title="01. The Mechanosphere (Nightcore Remix)">01. The Mechanosphere (Nightcore Remix)</button></li>
+      <li><button type="button" class="track-btn" data-src="https://archive.org/download/LBD-The-Brodcast-Nightcore/02%20Man%20In%20The%20Moon%20%28Nightcore%29.mp3" data-title="02. Man in The Moon (Nightcore Remix)">02. Man in The Moon (Nightcore Remix)</button></li>
+      <li><button type="button" class="track-btn" data-src="https://archive.org/download/LBD-The-Brodcast-Nightcore/03%20Day%2010%2C909%20%28Nightcore%29.mp3" data-title="03. Day 10,909 (Nightcore Remix)">03. Day 10,909 (Nightcore Remix)</button></li>
+      <li><button type="button" class="track-btn" data-src="https://archive.org/download/LBD-The-Brodcast-Nightcore/04%20The%20Homeless%20Must%20Go%20%28Nightcore%29.mp3" data-title="04. The Homeless Must Go (Nightcore Remix)">04. The Homeless Must Go (Nightcore Remix)</button></li>
+      <li><button type="button" class="track-btn" data-src="https://archive.org/download/LBD-The-Brodcast-Nightcore/05%20Who%20Am%20I%20%28Nightcore%29.mp3" data-title="05. Who Am I (Nightcore Remix)">05. Who Am I (Nightcore Remix)</button></li>
+      <li><button type="button" class="track-btn" data-src="https://archive.org/download/LBD-The-Brodcast-Nightcore/06%20The%20Sky%27s%20The%20Limit%20%28Nightcore%29.mp3" data-title="06. The Sky's The Limit (Nightcore Remix)">06. The Sky's The Limit (Nightcore Remix)</button></li>
+    </ul>
+  </div>
 </main>
 <footer>Lethal By Default Archive · Galesburg, IL · <a href="../../../gravensuicide/gravensuicide.html">Graven-Suicide</a></footer>
 <script src="../../../js/site.js"></script>
+<script>
+  document.querySelectorAll(".web-player").forEach((player) => {
+    const audio = player.querySelector("audio");
+    const nowPlaying = player.querySelector(".web-player__now");
+    const buttons = Array.from(player.querySelectorAll(".track-btn"));
+
+    function playTrack(btn, autoPlay = true) {
+      const src = btn.getAttribute("data-src");
+      const title = btn.getAttribute("data-title") || btn.textContent.trim();
+      if (!src) return;
+
+      buttons.forEach((b) => b.classList.remove("is-active"));
+      btn.classList.add("is-active");
+      nowPlaying.textContent = "Playing: " + title;
+      audio.src = src;
+      if (autoPlay) {
+        audio.play().catch(() => {});
+      }
+    }
+
+    buttons.forEach((btn, idx) => {
+      btn.addEventListener("click", () => playTrack(btn, true));
+      audio.addEventListener("ended", () => {
+        if (btn.classList.contains("is-active") && idx + 1 < buttons.length) {
+          playTrack(buttons[idx + 1], true);
+        }
+      });
+    });
+  });
+</script>
 </body>
 </html>
