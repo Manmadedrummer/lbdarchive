@@ -11,6 +11,50 @@
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../../css/style.css">
 <style>
+  .album-hero {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.25rem;
+  }
+  .album-hero .cover {
+    margin: 0;
+    flex-shrink: 0;
+  }
+  .mix-notes {
+    flex: 1;
+    min-width: 260px;
+    max-width: 520px;
+    padding: 0.9rem 1.1rem;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 6px;
+    background: rgba(9, 11, 15, 0.78);
+    font-size: 0.95rem;
+    line-height: 1.55;
+  }
+  .mix-notes__title {
+    margin: 0 0 0.55rem;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #f4f4f5;
+  }
+  .mix-notes ul {
+    margin: 0;
+    padding-left: 1.15rem;
+  }
+  .mix-notes li + li {
+    margin-top: 0.55rem;
+  }
+  .mix-notes__daycore {
+    color: #67e8f9;
+  }
+  .mix-notes__nightcore {
+    color: #f472b6;
+  }
+
   .web-player {
     margin: 0.75rem 0 1rem;
     padding: 0.9rem;
@@ -93,7 +137,17 @@
 <main>
   <nav class="crumbs" aria-label="Breadcrumb"><a href="../../../index.html">Home</a> <span>/</span> <a href="../../../albums-main/albums-main.html">Albums</a> <span>/</span> <a href="../../../albums-main/lbd-albums/lbd-albums.html">Lethal By Default Albums</a> <span>/</span> Shedding Illusions (Day~Night)</nav>
   <h1>Shedding Illusions (Day~Night)</h1>
-  <figure class="cover"><img src="../../../images/albums-main-lbd-albums-shedding-illusions-daycore-cover.jpg" alt="Shedding Illusions (Day~Night) cover art"></figure>
+
+  <div class="album-hero">
+    <figure class="cover"><img src="../../../images/albums-main-lbd-albums-shedding-illusions-daycore-cover.jpg" alt="Shedding Illusions (Day~Night) cover art"></figure>
+    <div class="mix-notes">
+      <div class="mix-notes__title">Production Notes</div>
+      <ul>
+        <li><strong class="mix-notes__daycore">Daycore Mix:</strong> Down-pitched and tempo-stretched to widen the low-mid rumble, darken vocal formants, and give the riffs a heavier, sludge-infused weight.</li>
+        <li><strong class="mix-notes__nightcore">Nightcore Mix:</strong> Up-pitched and accelerated to tighten drum transients, lift the upper harmonics, and push the arrangement into a frantic, high-energy pace.</li>
+      </ul>
+    </div>
+  </div>
 
   <h2>Shedding Illusions (Daycore Remix)</h2>
   <div class="web-player web-player--daycore" data-player="shedding-illusions-daycore">
