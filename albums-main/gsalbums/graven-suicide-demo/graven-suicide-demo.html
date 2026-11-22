@@ -10,6 +10,49 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../../css/style.css">
+<style>
+  .web-player {
+    margin: 0.75rem 0 1rem;
+    padding: 0.85rem;
+    max-width: 640px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 6px;
+    background: rgba(0, 0, 0, 0.25);
+  }
+  .web-player__now {
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    opacity: 0.85;
+  }
+  .web-player audio {
+    width: 100%;
+    margin-bottom: 0.65rem;
+  }
+  .tracklist {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .tracklist li + li {
+    margin-top: 0.35rem;
+  }
+  .track-btn {
+    width: 100%;
+    text-align: left;
+    padding: 0.45rem 0.65rem;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.04);
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
+  }
+  .track-btn:hover,
+  .track-btn.is-active {
+    background: rgba(255, 255, 255, 0.16);
+    border-color: rgba(255, 255, 255, 0.35);
+  }
+</style>
 </head>
 <body>
 <header class="top">
@@ -20,12 +63,62 @@
   <nav class="crumbs" aria-label="Breadcrumb"><a href="../../../index.html">Home</a> <span>/</span> <a href="../../../albums-main/albums-main.html">Albums</a> <span>/</span> <a href="../../../albums-main/gsalbums/gsalbums.html">Graven-Suicide Albums</a> <span>/</span> Graven Suicide - Demo</nav>
   <h1>Graven Suicide - Demo</h1>
   <figure class="cover"><img src="../../../images/albums-main-gsalbums-graven-suicide-demo-cover.jpg" alt="Graven Suicide - Demo cover art"></figure>
-<h2>Graven Suicide - Demo</h2>
-<p class="tracks">01. <a href="https://1drv.ms/u/c/b90fa087904a09c7/IQBNNHyhdpqrT66WUG6dIo0VAY1YXKRh5TtvWjglVCbhArw?e=JX4vSP" target="_blank" rel="noopener">Art of Sin</a><br>02. <a href="https://1drv.ms/u/c/b90fa087904a09c7/IQBLzkjht3jTRJR6L6i2xeLwAUZNhTfN04YYhuHWPMjjnjo?e=cjtEMh" target="_blank" rel="noopener">Corner of My Mind</a><br>03. <a href="https://1drv.ms/u/c/b90fa087904a09c7/IQA7NRqUQKmiS5wU0Tm13F4xAcZubYdym_ivQpXwiDWVsGQ?e=y4HP1a" target="_blank" rel="noopener">Paperplates</a></p>
-<h2>Remastered Version</h2>
-<p class="tracks">01. <a href="https://1drv.ms/u/c/b90fa087904a09c7/IQCNZvHFeMyzRaU5_O-bpqBuARFyQMb6m8jLAcCaOHl7q08?e=FvKFQZ" target="_blank" rel="noopener">Art of Sin</a><br>02. <a href="https://1drv.ms/u/c/b90fa087904a09c7/IQA282n_VDnDRa81dq5QEZzCAZRfqzM6uSDAJZmWKLADyrk?e=V6mAQ7" target="_blank" rel="noopener">Corner of My Mind</a><br>03. <a href="https://1drv.ms/u/c/b90fa087904a09c7/IQCSZz8pQ9cyTbZ9_lqXB0PFATavhJWdFT24hCbNEbLxvX0?e=3NTpqd" target="_blank" rel="noopener">Paperplates</a></p>
+
+  <h2>Graven Suicide - Demo</h2>
+  <div class="web-player" data-player="demo">
+    <div class="web-player__now">Select a track to play</div>
+    <audio controls preload="metadata"></audio>
+    <ul class="tracklist">
+      <li><button type="button" class="track-btn" data-src="https://archive.org/download/Graven-Suicide-Demo/01%20Art%20of%20Sin.mp3" data-title="01. Art of Sin">01. Art of Sin</button></li>
+      <li><button type="button" class="track-btn" data-src="https://archive.org/download/Graven-Suicide-Demo/02%20Corner%20of%20My%20Mind.mp3" data-title="02. Corner of My Mind">02. Corner of My Mind</button></li>
+      <li><button type="button" class="track-btn" data-src="https://archive.org/download/Graven-Suicide-Demo/03%20Paper%20Plates.mp3" data-title="03. Paperplates">03. Paperplates</button></li>
+    </ul>
+  </div>
+  <p class="tracks">01. <a href="https://1drv.ms/u/c/b90fa087904a09c7/IQBNNHyhdpqrT66WUG6dIo0VAY1YXKRh5TtvWjglVCbhArw?e=JX4vSP" target="_blank" rel="noopener">Art of Sin</a><br>02. <a href="https://1drv.ms/u/c/b90fa087904a09c7/IQBLzkjht3jTRJR6L6i2xeLwAUZNhTfN04YYhuHWPMjjnjo?e=cjtEMh" target="_blank" rel="noopener">Corner of My Mind</a><br>03. <a href="https://1drv.ms/u/c/b90fa087904a09c7/IQA7NRqUQKmiS5wU0Tm13F4xAcZubYdym_ivQpXwiDWVsGQ?e=y4HP1a" target="_blank" rel="noopener">Paperplates</a></p>
+
+  <h2>Remastered Version</h2>
+  <div class="web-player" data-player="remastered">
+    <div class="web-player__now">Select a track to play</div>
+    <audio controls preload="metadata"></audio>
+    <ul class="tracklist">
+      <li><button type="button" class="track-btn" data-src="https://archive.org/download/GSDemo-Remastered/01%20Art%20of%20Sin.mp3" data-title="01. Art of Sin (Remastered)">01. Art of Sin</button></li>
+      <li><button type="button" class="track-btn" data-src="https://archive.org/download/GSDemo-Remastered/02%20Corner%20of%20My%20Mind.mp3" data-title="02. Corner of My Mind (Remastered)">02. Corner of My Mind</button></li>
+      <li><button type="button" class="track-btn" data-src="https://archive.org/download/GSDemo-Remastered/03%20Paper%20Plates.mp3" data-title="03. Paperplates (Remastered)">03. Paperplates</button></li>
+    </ul>
+  </div>
+  <p class="tracks">01. <a href="https://1drv.ms/u/c/b90fa087904a09c7/IQCNZvHFeMyzRaU5_O-bpqBuARFyQMb6m8jLAcCaOHl7q08?e=FvKFQZ" target="_blank" rel="noopener">Art of Sin</a><br>02. <a href="https://1drv.ms/u/c/b90fa087904a09c7/IQA282n_VDnDRa81dq5QEZzCAZRfqzM6uSDAJZmWKLADyrk?e=V6mAQ7" target="_blank" rel="noopener">Corner of My Mind</a><br>03. <a href="https://1drv.ms/u/c/b90fa087904a09c7/IQCSZz8pQ9cyTbZ9_lqXB0PFATavhJWdFT24hCbNEbLxvX0?e=3NTpqd" target="_blank" rel="noopener">Paperplates</a></p>
 </main>
 <footer>Lethal By Default Archive · Galesburg, IL · <a href="../../../gravensuicide/gravensuicide.html">Graven-Suicide</a></footer>
 <script src="../../../js/site.js"></script>
+<script>
+  document.querySelectorAll(".web-player").forEach((player) => {
+    const audio = player.querySelector("audio");
+    const nowPlaying = player.querySelector(".web-player__now");
+    const buttons = Array.from(player.querySelectorAll(".track-btn"));
+
+    function playTrack(btn, autoPlay = true) {
+      const src = btn.getAttribute("data-src");
+      const title = btn.getAttribute("data-title") || btn.textContent.trim();
+      if (!src) return;
+
+      buttons.forEach((b) => b.classList.remove("is-active"));
+      btn.classList.add("is-active");
+      nowPlaying.textContent = "Playing: " + title;
+      audio.src = src;
+      if (autoPlay) {
+        audio.play().catch(() => {});
+      }
+    }
+
+    buttons.forEach((btn, idx) => {
+      btn.addEventListener("click", () => playTrack(btn, true));
+      audio.addEventListener("ended", () => {
+        if (btn.classList.contains("is-active") && idx + 1 < buttons.length) {
+          playTrack(buttons[idx + 1], true);
+        }
+      });
+    });
+  });
+</script>
 </body>
 </html>
