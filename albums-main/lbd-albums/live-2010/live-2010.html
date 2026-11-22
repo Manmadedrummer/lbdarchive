@@ -10,6 +10,54 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../../css/style.css">
+<style>
+  .web-player {
+    margin: 0.75rem 0 1rem;
+    padding: 0.9rem;
+    max-width: 640px;
+    border: 1px solid #7f1d1d;
+    border-radius: 6px;
+    background: #050505;
+    color: #ef4444;
+    box-shadow: 0 0 0 1px rgba(239, 68, 68, 0.14);
+  }
+  .web-player__now {
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 0.6rem;
+    color: #f4f4f5;
+  }
+  .web-player audio {
+    width: 100%;
+    margin-bottom: 0.7rem;
+    color-scheme: dark;
+  }
+  .tracklist {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .tracklist li + li {
+    margin-top: 0.35rem;
+  }
+  .track-btn {
+    width: 100%;
+    text-align: left;
+    padding: 0.45rem 0.65rem;
+    border: 1px solid #450a0a;
+    border-radius: 4px;
+    background: #0e0e10;
+    color: #ef4444;
+    font: inherit;
+    cursor: pointer;
+  }
+  .track-btn:hover,
+  .track-btn.is-active {
+    background: #280707;
+    border-color: #ef4444;
+    color: #f4f4f5;
+  }
+</style>
 </head>
 <body>
 <header class="top">
@@ -20,10 +68,54 @@
   <nav class="crumbs" aria-label="Breadcrumb"><a href="../../../index.html">Home</a> <span>/</span> <a href="../../../albums-main/albums-main.html">Albums</a> <span>/</span> <a href="../../../albums-main/lbd-albums/lbd-albums.html">Lethal By Default Albums</a> <span>/</span> Live 2010</nav>
   <h1>Live 2010</h1>
   <figure class="cover"><img src="../../../images/albums-main-lbd-albums-live-2010-cover.jpg" alt="Live 2010 cover art"></figure>
-<h2>Live 2010</h2>
-<p class="tracks">01. <a href="https://1drv.ms/u/c/b90fa087904a09c7/IQBIHrURb9LEQ4A-ndpfB_QDAW15twXQcAaDUlqKDzIX1tc?e=5k2HMX" target="_blank" rel="noopener">Dementia<br></a>02. <a href="https://1drv.ms/u/c/b90fa087904a09c7/IQBVsIsIYIeJQYrrQ7ccc_TyAUFwZdI381WbFBdgQWXCUdY?e=kNQeeF" target="_blank" rel="noopener">Iron Curtain<br></a>03. <a href="https://1drv.ms/u/c/b90fa087904a09c7/IQBpfzqdEDdUSYmSJ9T8POh9Ac0KXv0v3_SARXycfCfLpHM?e=oWBTRn" target="_blank" rel="noopener">Destined to Be Damned<br></a>04. <a href="https://1drv.ms/u/c/b90fa087904a09c7/IQA7RYYA3tbITJwnbzH3X668AUqoYp0yOIItFeZ6bDXHc84?e=yg5IEZ" target="_blank" rel="noopener">Who Am I<br></a>05. <a href="https://1drv.ms/u/c/b90fa087904a09c7/IQBzCVRKb_D-TKGu4C--wvU3ARJdcQIr3rk_J5Tnb5XSdco?e=GdenYD" target="_blank" rel="noopener">War of Lies<br></a>06. <a href="https://1drv.ms/u/c/b90fa087904a09c7/IQB79zcLGQAXTovtOPF7pWCGAYOsywAK-fz9d-ownnxFDsI?e=vnif3Q" target="_blank" rel="noopener">Man in The Moon<br></a>07. <a href="https://1drv.ms/u/c/b90fa087904a09c7/IQDclYqyPKzBR6SYq8SY-0TfAfzzkz3B6ZpA9vS_FJKJNe0?e=hUvLtk" target="_blank" rel="noopener">Sky&#x27;s The Limit<br></a>08. <a href="https://1drv.ms/u/c/b90fa087904a09c7/IQCAZCEkWI1ASJy3TthosyFJAarmEGzMQRbcDt4qR-QwOOs?e=PZldre" target="_blank" rel="noopener">One More Day</a></p>
+
+  <h2>Live 2010</h2>
+  <div class="web-player" data-player="live-2010">
+    <div class="web-player__now">Select a track to play</div>
+    <audio controls preload="metadata"></audio>
+    <ul class="tracklist">
+      <li><button type="button" class="track-btn" data-src="https://archive.org/download/LBD-Live2010/01%20Dementia.mp3" data-title="01. Dementia">01. Dementia</button></li>
+      <li><button type="button" class="track-btn" data-src="https://archive.org/download/LBD-Live2010/02%20Iron%20Curtain.mp3" data-title="02. Iron Curtain">02. Iron Curtain</button></li>
+      <li><button type="button" class="track-btn" data-src="https://archive.org/download/LBD-Live2010/03%20Destined%20to%20Be%20Damned.mp3" data-title="03. Destined to Be Damned">03. Destined to Be Damned</button></li>
+      <li><button type="button" class="track-btn" data-src="https://archive.org/download/LBD-Live2010/04%20Who%20Am%20I.mp3" data-title="04. Who Am I">04. Who Am I</button></li>
+      <li><button type="button" class="track-btn" data-src="https://archive.org/download/LBD-Live2010/05%20War%20of%20Lies.mp3" data-title="05. War of Lies">05. War of Lies</button></li>
+      <li><button type="button" class="track-btn" data-src="https://archive.org/download/LBD-Live2010/06%20Man%20In%20The%20Moon.mp3" data-title="06. Man in The Moon">06. Man in The Moon</button></li>
+      <li><button type="button" class="track-btn" data-src="https://archive.org/download/LBD-Live2010/07%20Skies%20The%20Limit.mp3" data-title="07. Sky's The Limit">07. Sky's The Limit</button></li>
+      <li><button type="button" class="track-btn" data-src="https://archive.org/download/LBD-Live2010/08%20One%20More%20Day.mp3" data-title="08. One More Day">08. One More Day</button></li>
+    </ul>
+  </div>
 </main>
 <footer>Lethal By Default Archive · Galesburg, IL · <a href="../../../gravensuicide/gravensuicide.html">Graven-Suicide</a></footer>
 <script src="../../../js/site.js"></script>
+<script>
+  document.querySelectorAll(".web-player").forEach((player) => {
+    const audio = player.querySelector("audio");
+    const nowPlaying = player.querySelector(".web-player__now");
+    const buttons = Array.from(player.querySelectorAll(".track-btn"));
+
+    function playTrack(btn, autoPlay = true) {
+      const src = btn.getAttribute("data-src");
+      const title = btn.getAttribute("data-title") || btn.textContent.trim();
+      if (!src) return;
+
+      buttons.forEach((b) => b.classList.remove("is-active"));
+      btn.classList.add("is-active");
+      nowPlaying.textContent = "Playing: " + title;
+      audio.src = src;
+      if (autoPlay) {
+        audio.play().catch(() => {});
+      }
+    }
+
+    buttons.forEach((btn, idx) => {
+      btn.addEventListener("click", () => playTrack(btn, true));
+      audio.addEventListener("ended", () => {
+        if (btn.classList.contains("is-active") && idx + 1 < buttons.length) {
+          playTrack(buttons[idx + 1], true);
+        }
+      });
+    });
+  });
+</script>
 </body>
 </html>
