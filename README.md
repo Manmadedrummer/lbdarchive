@@ -1,9 +1,9 @@
 # Lethal By Default Archive
 
 A static copy of the band's old Google Sites archive: albums, live videos and photos.
-Plain HTML, CSS and a little JavaScript, with no build step needed to view or host it.
+Plain HTML, CSS and a little JavaScript. No build step is needed to view or host it.
 
-**Live site:** `https://manmadedrummer.github.io/lbdarchive/` (after turning on GitHub Pages, see below)
+**Live site:** https://manmadedrummer.github.io/lbdarchive/
 
 ## What's here
 
@@ -11,40 +11,34 @@ Plain HTML, CSS and a little JavaScript, with no build step needed to view or ho
 | :-- | :-- |
 | `index.html` | Home page |
 | `albums-main/` | Albums (Lethal By Default and Graven-Suicide) with track links |
-| `video-main/` | Live videos: embedded YouTube players plus links to the source files |
+| `video-main/` | Live videos: YouTube embeds plus links to the source files |
 | `photos/` | Photo galleries with a click-to-enlarge viewer |
 | `gravensuicide/` | Graven-Suicide landing page |
-| `images/` | All images (`images/thumbs/` holds small versions for the galleries) |
+| `images/` | Web-sized images (`images/thumbs/` holds the small gallery versions) |
 | `source-pages/` | The original pages saved from Google Sites with SingleFile |
-| `tools/build_site.py` | Script that regenerates the site from `source-pages/` |
+| `source-images/` | Full-size original artwork and photos (never modified) |
+| `tools/build_site.py` | Regenerates the site from `source-pages/` and `source-images/` |
 
 ## Hosting on GitHub Pages
 
-1. Open the repo's **Settings → Pages**.
-2. Under **Build and deployment**, choose **Deploy from a branch**.
-3. Pick the `main` branch and the `/ (root)` folder, then **Save**.
-4. After a minute or two the site is live at the address above.
+**Settings → Pages → Deploy from a branch → `main` → `/ (root)` → Save.**
 
-## Adding the pages that are still missing
-
-Three pages weren't in the first save, so their links still point to the old Google Sites address:
-
-- `CD Release (11/14/2009)`
-- `Live Photos`
-- `Graven Suicide - Demo`
-
-To add them, open each page on the old site, save it with SingleFile, and drop the file into `source-pages/`
-named `LBDArchive - CD Release.html`, `LBDArchive - Live Photos.html` and `LBDArchive - Graven Suicide -Demo.html`.
-Then rebuild:
+## Rebuilding
 
 ```
 pip install beautifulsoup4 lxml pillow
-python tools/build_site.py source-pages .
+python tools/build_site.py source-pages . source-images
 ```
 
-The new pages appear and every link to them switches to the local copy.
+The script re-creates the pages and web-sized images from the originals. Gallery photos come from the folders in
+`source-images/DONE PHOTOS/`: add or remove pictures there and rebuild. Exact duplicates are skipped, GPS and camera
+data are stripped from the web copies, and black bars baked into a photo are trimmed from the web copy only.
+
+## Still to add
+
+`Graven Suicide - Demo` (Albums → Graven-Suicide Albums) isn't in `source-pages/` yet, so its link still points to the old
+Google Sites page. Save it with SingleFile as `LBDArchive - Graven Suicide -Demo.html`, drop it in `source-pages/`, and rebuild.
 
 ## Notes
 
-- Videos are YouTube embeds. If a video is ever removed from YouTube, the "Source file" link beneath it still points to the original file on OneDrive.
-- Gallery photos are the sizes Google Sites served, which may be smaller than the originals. Keep the originals somewhere safe.
+- Videos are YouTube embeds. If one is ever removed, the "Source file" link beneath it still points to the original file on OneDrive.

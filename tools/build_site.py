@@ -3,7 +3,7 @@
 Build the Lethal By Default Archive static site from SingleFile saves of the
 old Google Sites pages.
 
-Usage:  python3 build_site.py <source-pages-dir> <output-dir>
+Usage:  python3 build_site.py <source-pages-dir> <output-dir> [source-images-dir]
 
 Needs:  pip install beautifulsoup4 lxml pillow
 
@@ -17,6 +17,8 @@ from bs4 import BeautifulSoup, NavigableString, Tag
 from PIL import Image
 
 SRC, OUT = sys.argv[1], sys.argv[2]
+IMGSRC = sys.argv[3] if len(sys.argv) > 3 else None   # folder holding your original images (source-images)
+PHOTOS = os.path.join(IMGSRC, "DONE PHOTOS") if IMGSRC else None
 OLD = "https://sites.google.com/view/lbdarchive/"
 SITE = "Lethal By Default Archive"
 
@@ -77,6 +79,108 @@ def h6(s):
     return hashlib.md5(s.encode()).hexdigest()[:6]
 
 
+# stored-image name -> original file in source-images (used instead of the copy embedded in the saved page)
+OVERRIDE = {
+    "albums-main-lbd-albums-descent-ep-cover": "Descent.jpg",
+    "albums-main-lbd-albums-live-2010-cover": "lbd.jpg",
+    "albums-main-lbd-albums-shedding-illusions-cover": "SheddingIllusions.jpg",
+    "albums-main-lbd-albums-shedding-illusions-daycore-cover": "SIDaycore.png",
+    "albums-main-lbd-albums-shedding-illusions-daycore-cover-2": "SINightcore.jpg",
+    "albums-main-lbd-albums-the-broadcast-cover": "The Broadcast.jpg",
+    "albums-main-lbd-albums-the-broadcast-day-night-cover": "BroadcastDaycore.jpg",
+    "albums-main-lbd-albums-the-broadcast-day-night-cover-2": "BroadcastNightcore.jpg",
+    "albums-main-lbd-albums-the-relay-cover": "TheRelay.jpg",
+    "card-21-club": "21Club.jpg", "card-albums": "Albums.png", "card-b-sides": "Bsides.jpg",
+    "card-best-western": "BestWestern.png", "card-chataqua-will-rock-you-fest": "Kewanee.jpg",
+    "card-demo": "GSDemo.jpg", "card-descent": "Descent.jpg", "card-extras": "Extras.jpg",
+    "card-graven-suicidealbums": "GSLOGO.jpg", "card-henry-county-fair": "Fair.jpg",
+    "card-labor-temple": "LaborTemple.jpg", "card-lethal-by-defaultalbums": "lbd.jpg",
+    "card-live-2010": "lbd.jpg", "card-new-billiards-on-main": "NewBilliards.jpg",
+    "card-old-billiards-on-main-w-dax": "OBOM.png", "card-old-billiards-on-main": "Old Billiards.jpg",
+    "card-pop-s-nightclub-concert-venue": "Pops.jpg", "card-rick-thompson-s": "Ricks.jpg",
+    "card-river-music-experience": "RME.jpg", "card-shedding-illusions-day-night": "SIDay-Night.jpg",
+    "card-shedding-illusions": "SheddingIllusions.jpg", "card-springstock": "Springstock.jpg",
+    "card-the-braodcast-day-night": "BroadcastDayNight.jpg", "card-the-broadcast": "The Broadcast.jpg",
+    "card-the-relay": "TheRelay.jpg", "card-videos": "Video.png", "card-woodhull-150th": "Woodhull150th.jpg",
+}
+# page path -> folder under "DONE PHOTOS" (full-size originals replace the pictures saved from Google Sites)
+PHOTO_DIRS = {
+    "photos/cd-release": "CD Release (11-14-09)", "photos/chataqua-park": "Chataqua Park (5-15-10)",
+    "photos/cover-photos": "CoverPhotos", "photos/facebook-post-photos": "Facebook Post Photos",
+    "photos/flyers": "Flyers", "photos/live-photos": "Live Photos", "photos/profile-pictures": "ProfilePictures",
+    "photos/promo-photos": "Promo Photos", "photos/reverbnation": "Reverbnation", "photos/tagged": "Tagged",
+    "photos/the-21-club": "The 21 Club (2-19-11)",
+}
+WEB_MAX = 1800     # longest edge of the full-size web copy
+CARD_MAX = 1400
+
+
+def natkey(s):
+    return [int(t) if t.isdigit() else t.lower() for t in re.split(r"(\d+)", s)]
+
+
+def trim_black(im):
+    """Crop pure-black bars baked into an image (web copy only; originals are untouched)."""
+    import numpy as np
+    a = np.asarray(im.convert("L"))
+    h, w = a.shape
+    cols = np.where(a.max(axis=0) > 14)[0]
+    rows = np.where(a.max(axis=1) > 14)[0]
+    if len(cols) == 0 or len(rows) == 0:
+        return im
+    l, r, t, b = cols[0], cols[-1] + 1, rows[0], rows[-1] + 1
+    if (r - l) < 0.4 * w or (b - t) < 0.4 * h:
+        return im
+    if (l + (w - r)) < 0.03 * w and (t + (h - b)) < 0.03 * h:
+        return im
+    return im.crop((l, t, r, b))
+
+
+def web_copy(src_path, dest_rel_noext, maxedge, thumb=False):
+    """Resize an original to a web-friendly JPEG (EXIF/GPS stripped). Returns file name under images/."""
+    im = Image.open(src_path)
+    try:
+        from PIL import ImageOps
+        im = ImageOps.exif_transpose(im)
+    except Exception:
+        pass
+    if im.mode in ("RGBA", "LA", "P"):
+        bg = Image.new("RGB", im.size, (0, 0, 0))
+        im = im.convert("RGBA"); bg.paste(im, mask=im.split()[-1]); im = bg
+    else:
+        im = im.convert("RGB")
+    if thumb:
+        im = trim_black(im)
+    full = im.copy()
+    full.thumbnail((maxedge, maxedge), Image.LANCZOS)
+    full.save(os.path.join(OUT, "images", dest_rel_noext + ".jpg"), "JPEG", quality=86, optimize=True, progressive=True)
+    if thumb:
+        t = im.copy(); t.thumbnail((640, 640), Image.LANCZOS)
+        t.save(os.path.join(OUT, "images/thumbs", dest_rel_noext + ".jpg"), "JPEG", quality=80, optimize=True)
+    return dest_rel_noext + ".jpg"
+
+
+def folder_gallery(page_path):
+    """Return list of image file names (under images/) built from the original photos folder, de-duplicated."""
+    if not PHOTOS or page_path not in PHOTO_DIRS:
+        return None
+    d = os.path.join(PHOTOS, PHOTO_DIRS[page_path])
+    if not os.path.isdir(d):
+        return None
+    files = sorted([f for f in os.listdir(d) if f.lower().endswith((".jpg", ".jpeg", ".png", ".webp"))], key=natkey)
+    seen, out, base = set(), [], slug(page_path)
+    n = 0
+    for f in files:
+        raw = open(os.path.join(d, f), "rb").read()
+        hh = hashlib.md5(raw).hexdigest()
+        if hh in seen:
+            continue
+        seen.add(hh)
+        n += 1
+        out.append(web_copy(os.path.join(d, f), f"{base}-{n:03d}", WEB_MAX, thumb=True))
+    return out
+
+
 # ---------------------------------------------------------------- images
 os.makedirs(OUT, exist_ok=True)
 for d in ("images/site", "images/thumbs", "css", "js"):
@@ -103,6 +207,10 @@ def store_image(datauri, hint, thumb=False):
     while name in USED_NAMES:
         name = f"{base}-{n}"; n += 1
     USED_NAMES.add(name)
+    if IMGSRC and name in OVERRIDE and os.path.exists(os.path.join(IMGSRC, OVERRIDE[name])):
+        rel = web_copy(os.path.join(IMGSRC, OVERRIDE[name]), name, CARD_MAX)
+        IMG_BY_HASH[h] = rel
+        return rel
     rel = f"{name}.{ext}"
     raw = base64.b64decode(b64 + "===")
     with open(os.path.join(OUT, "images", rel), "wb") as f:
@@ -241,8 +349,18 @@ for p, label, ft in PAGES:
     if os.path.exists(fn):
         ttl, blocks = parse(fn, p)
         pages[p] = dict(path=p, label=LABEL[p], h1=ttl["text"] if isinstance(ttl, dict) else ttl, blocks=blocks)
+# galleries rebuilt from the original photo folders (also creates pages that were never saved)
+for gp, folder in PHOTO_DIRS.items():
+    files = folder_gallery(gp)
+    if not files:
+        continue
+    if gp in pages:
+        pages[gp]["blocks"] = [b for b in pages[gp]["blocks"] if b["t"] not in ("gallery", "img")] + [dict(t="gallery", files=files)]
+    else:
+        pages[gp] = dict(path=gp, label=LABEL[gp], h1=LABEL[gp], blocks=[dict(t="gallery", files=files)])
+    print("gallery", gp, len(files), "photos")
 missing = [p for p, _, ft in PAGES if ft and p not in pages]
-print("pages parsed:", len(pages), "| not saved yet:", missing)
+print("pages built:", len(pages), "| still not saved:", missing)
 
 
 def depth(p):
@@ -364,8 +482,9 @@ def render(page, first_gallery_thumb):
             if x["t"] == "gallery":
                 gal_idx += 1
                 figs = []
-                for n, d in enumerate(x["data"], 1):
-                    f = store_image(d, f"{slugname}-{n:02d}", thumb=True)
+                items_ = x["files"] if "files" in x else x["data"]
+                for n, d in enumerate(items_, 1):
+                    f = d if "files" in x else store_image(d, f"{slugname}-{n:02d}", thumb=True)
                     figs.append(f'<a href="{up}images/{f}" data-lb><img src="{up}images/thumbs/{os.path.splitext(f)[0]}.jpg" alt="{html.escape(page["h1"])} photo {n}" loading="lazy"></a>')
                 body.append(f'<div class="gallery">{"".join(figs)}</div>')
             elif x["t"] == "video":
@@ -480,11 +599,21 @@ def find_shared():
 
 
 find_shared()
+if IMGSRC:
+    for src_, dst_ in (("logo.jpg", "images/site/logo-wide.jpg"), ("bg.jpg", "images/site/bg.jpg")):
+        if os.path.exists(os.path.join(IMGSRC, src_)):
+            shutil.copy(os.path.join(IMGSRC, src_), os.path.join(OUT, dst_))
+    if os.path.exists(os.path.join(IMGSRC, "lbd.jpg")):
+        im_ = Image.open(os.path.join(IMGSRC, "lbd.jpg")).convert("RGB")
+        im_.thumbnail((512, 512)); im_.save(os.path.join(OUT, "images/site/logo-square.png"), optimize=True)
 
 # first gallery thumbnail per gallery page (used as card art on the Photos hub)
 first_gallery_thumb = {}
 for p, pg in pages.items():
     for blk in pg["blocks"]:
+        if blk["t"] == "gallery" and "files" in blk:
+            first_gallery_thumb[p] = os.path.splitext(blk["files"][0])[0] + ".jpg"
+            break
         if blk["t"] == "gallery" or (blk["t"] == "img" and p.startswith("photos/")):
             d0 = blk["data"][0] if blk["t"] == "gallery" else blk["data"]
             f = store_image(d0, f"{slug(p or 'home')}-01", thumb=True)
@@ -509,14 +638,24 @@ if "gravensuicide" in pages:
     for b in pages["gravensuicide"]["blocks"]:
         if b["t"] == "img":
             art.setdefault("gs", store_image(b["data"], "card-graven-suicide"))
-if "video-main/lbd-videos" in pages:
+def src_card(fn, name):
+    fp = os.path.join(IMGSRC, fn) if IMGSRC else None
+    return web_copy(fp, name, CARD_MAX) if fp and os.path.exists(fp) else None
+
+
+for k, (fn, nm) in {"albums": ("Albums.png", "home-albums"), "videos": ("Video.png", "home-videos"),
+                    "photos": ("Photos.png", "home-photos"), "gs": ("GSLOGO.jpg", "home-graven-suicide")}.items():
+    v = src_card(fn, nm)
+    if v:
+        art[k] = v
+if "video-main/lbd-videos" in pages and "videos" not in art:
     for b in pages["video-main/lbd-videos"]["blocks"]:
         if b["t"] == "img":
             art.setdefault("videos", store_image(b["data"], "card-videos"))
 home_cards = [
     ("albums-main", "Albums", "Lethal By Default and Graven-Suicide albums, remixes and remasters.", art.get("albums")),
     ("video-main", "Videos", "Live shows and extras from both bands.", art.get("videos")),
-    ("photos", "Photos", "Flyers, promo shots, live photos and more.", None),
+    ("photos", "Photos", "Flyers, promo shots, live photos and more.", art.get("photos")),
     ("gravensuicide", "Graven-Suicide", "The earlier band: albums and videos.", art.get("gs")),
 ]
 chtml = []
