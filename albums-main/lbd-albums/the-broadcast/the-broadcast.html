@@ -10,6 +10,53 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../../css/style.css">
+<style>
+  .web-player {
+    margin: 0.75rem 0 1rem;
+    padding: 0.9rem;
+    max-width: 640px;
+    border: 1px solid #8a4b26;
+    border-radius: 6px;
+    background: #0b0a09;
+    color: #e4e4e7;
+  }
+  .web-player__now {
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 0.6rem;
+    color: #f4f4f5;
+  }
+  .web-player audio {
+    width: 100%;
+    margin-bottom: 0.7rem;
+    color-scheme: dark;
+  }
+  .tracklist {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .tracklist li + li {
+    margin-top: 0.35rem;
+  }
+  .track-btn {
+    width: 100%;
+    text-align: left;
+    padding: 0.45rem 0.65rem;
+    border: 1px solid #4a2c1b;
+    border-radius: 4px;
+    background: #141312;
+    color: #d4d4d8;
+    font: inherit;
+    cursor: pointer;
+  }
+  .track-btn:hover,
+  .track-btn.is-active {
+    background: #241710;
+    border-color: #d98a5b;
+    color: #ffffff;
+  }
+</style>
 </head>
 <body>
 <header class="top">
@@ -20,14 +67,66 @@
   <nav class="crumbs" aria-label="Breadcrumb"><a href="../../../index.html">Home</a> <span>/</span> <a href="../../../albums-main/albums-main.html">Albums</a> <span>/</span> <a href="../../../albums-main/lbd-albums/lbd-albums.html">Lethal By Default Albums</a> <span>/</span> The Broadcast</nav>
   <h1>The Broadcast</h1>
   <figure class="cover"><img src="../../../images/albums-main-lbd-albums-the-broadcast-cover.jpg" alt="The Broadcast cover art"></figure>
-<h2>The Broadcast</h2>
-<p class="tracks">01. <a href="https://1drv.ms/u/c/b90fa087904a09c7/IQDHCUqQh6APIIC5dM0CAAAAAYTSw5GPrgqho_phz9jetpA?e=ewTPBl" target="_blank" rel="noopener">The Mechanosphere<br></a>02. <a href="https://1drv.ms/u/c/b90fa087904a09c7/IQDHCUqQh6APIIC5dc0CAAAAAdXZRxDMs-OPRRPbtToB8dI?e=zW39Iw" target="_blank" rel="noopener">Man in The Moon<br></a>03. <a href="https://1drv.ms/u/c/b90fa087904a09c7/IQDHCUqQh6APIIC5ds0CAAAAAc_lFzRstQk4_pyeu3Q5JGg?e=3kG4qf" target="_blank" rel="noopener">Day 10,909<br></a>04. <a href="https://1drv.ms/u/c/b90fa087904a09c7/IQDHCUqQh6APIIC5d80CAAAAAVwjPsLY9EwbPqShbcNZ94k?e=6zstNC" target="_blank" rel="noopener">The Homeless Must Go<br></a>05. <a href="https://1drv.ms/u/c/b90fa087904a09c7/IQDHCUqQh6APIIC5ec0CAAAAAShy5anK4m24XrA7YAtHtrw?e=U46fvz" target="_blank" rel="noopener">Who Am I</a></p>
-<p class="tracks">06. <a href="https://1drv.ms/u/c/b90fa087904a09c7/IQDHCUqQh6APIIC5eM0CAAAAAdDHxn5lSvtVqxlyky2C4LI?e=sVSli6" target="_blank" rel="noopener">The Sky&#x27;s The Limit</a></p>
-<h2>Remastered Version</h2>
-<p class="tracks">01. <a href="https://1drv.ms/u/c/b90fa087904a09c7/IQDHCUqQh6APIIC5gs0CAAAAATsfpvaKbW2BKYgijbaOGKE?e=7z0okw" target="_blank" rel="noopener">The Mechanosphere<br></a>02. <a href="https://1drv.ms/u/c/b90fa087904a09c7/IQDHCUqQh6APIIC5hM0CAAAAAfo7Km7CMFb8xspWFIm9iDg?e=jcfjdq" target="_blank" rel="noopener">Man in The Moon<br></a>03. <a href="https://1drv.ms/u/c/b90fa087904a09c7/IQDHCUqQh6APIIC5hc0CAAAAAQNTU2kUI7Y4bhUueBjZxQk?e=A9FZep" target="_blank" rel="noopener">Day 10,909<br></a>04. <a href="https://1drv.ms/u/c/b90fa087904a09c7/IQDHCUqQh6APIIC5hs0CAAAAAa5uCgE_7rawxdKMd62_8As?e=oaZL81" target="_blank" rel="noopener">The Homeless Must Go<br></a>05. <a href="https://1drv.ms/u/c/b90fa087904a09c7/IQDHCUqQh6APIIC5h80CAAAAAaYOvuK1g26wxK_DxjJORLo?e=DrlTPe" target="_blank" rel="noopener">Who Am I</a></p>
-<p class="tracks">06. T<a href="https://1drv.ms/u/c/b90fa087904a09c7/IQDHCUqQh6APIIC5iM0CAAAAAdBeS9_JxNHwXZIuV8o7MZw?e=EcAVkW" target="_blank" rel="noopener">he Sky&#x27;s The Limit</a></p>
+
+  <h2>The Broadcast</h2>
+  <div class="web-player" data-player="the-broadcast">
+    <div class="web-player__now">Select a track to play</div>
+    <audio controls preload="metadata"></audio>
+    <ul class="tracklist">
+      <li><button type="button" class="track-btn" data-src="https://archive.org/download/LBD-The-Broadcast/01%20The%20Mechanosphere.mp3" data-title="01. The Mechanosphere">01. The Mechanosphere</button></li>
+      <li><button type="button" class="track-btn" data-src="https://archive.org/download/LBD-The-Broadcast/02%20Man%20In%20The%20Moon.mp3" data-title="02. Man in The Moon">02. Man in The Moon</button></li>
+      <li><button type="button" class="track-btn" data-src="https://archive.org/download/LBD-The-Broadcast/03%20Day%2010%2C909.mp3" data-title="03. Day 10,909">03. Day 10,909</button></li>
+      <li><button type="button" class="track-btn" data-src="https://archive.org/download/LBD-The-Broadcast/04%20The%20Homeless%20Must%20Go.mp3" data-title="04. The Homeless Must Go">04. The Homeless Must Go</button></li>
+      <li><button type="button" class="track-btn" data-src="https://archive.org/download/LBD-The-Broadcast/05%20Who%20Am%20I.mp3" data-title="05. Who Am I">05. Who Am I</button></li>
+      <li><button type="button" class="track-btn" data-src="https://archive.org/download/LBD-The-Broadcast/06%20The%20Sky%27s%20The%20Limit.mp3" data-title="06. The Sky's The Limit">06. The Sky's The Limit</button></li>
+    </ul>
+  </div>
+
+  <h2>Remastered Version</h2>
+  <div class="web-player" data-player="the-broadcast-remastered">
+    <div class="web-player__now">Select a track to play</div>
+    <audio controls preload="metadata"></audio>
+    <ul class="tracklist">
+      <li><button type="button" class="track-btn" data-src="https://archive.org/download/LBD-The-Broadcast-Remastered/01%20The%20Mechanosphere%20%28Remastered%29.mp3" data-title="01. The Mechanosphere (Remaster)">01. The Mechanosphere (Remaster)</button></li>
+      <li><button type="button" class="track-btn" data-src="https://archive.org/download/LBD-The-Broadcast-Remastered/02%20Man%20In%20The%20Moon%20%28Remastered%29.mp3" data-title="02. Man in The Moon (Remaster)">02. Man in The Moon (Remaster)</button></li>
+      <li><button type="button" class="track-btn" data-src="https://archive.org/download/LBD-The-Broadcast-Remastered/03%20Day%2010%2C909%20%28Remastered%29.mp3" data-title="03. Day 10,909 (Remaster)">03. Day 10,909 (Remaster)</button></li>
+      <li><button type="button" class="track-btn" data-src="https://archive.org/download/LBD-The-Broadcast-Remastered/04%20The%20Homeless%20Must%20Go%20%28Remastered%29.mp3" data-title="04. The Homeless Must Go (Remaster)">04. The Homeless Must Go (Remaster)</button></li>
+      <li><button type="button" class="track-btn" data-src="https://archive.org/download/LBD-The-Broadcast-Remastered/05%20Who%20Am%20I%20%28Remastered%29.mp3" data-title="05. Who Am I (Remaster)">05. Who Am I (Remaster)</button></li>
+      <li><button type="button" class="track-btn" data-src="https://archive.org/download/LBD-The-Broadcast-Remastered/06%20The%20Sky%27s%20The%20Limit%20%28Remastered%29.mp3" data-title="06. The Sky's The Limit (Remaster)">06. The Sky's The Limit (Remaster)</button></li>
+    </ul>
+  </div>
 </main>
 <footer>Lethal By Default Archive · Galesburg, IL · <a href="../../../gravensuicide/gravensuicide.html">Graven-Suicide</a></footer>
 <script src="../../../js/site.js"></script>
+<script>
+  document.querySelectorAll(".web-player").forEach((player) => {
+    const audio = player.querySelector("audio");
+    const nowPlaying = player.querySelector(".web-player__now");
+    const buttons = Array.from(player.querySelectorAll(".track-btn"));
+
+    function playTrack(btn, autoPlay = true) {
+      const src = btn.getAttribute("data-src");
+      const title = btn.getAttribute("data-title") || btn.textContent.trim();
+      if (!src) return;
+
+      buttons.forEach((b) => b.classList.remove("is-active"));
+      btn.classList.add("is-active");
+      nowPlaying.textContent = "Playing: " + title;
+      audio.src = src;
+      if (autoPlay) {
+        audio.play().catch(() => {});
+      }
+    }
+
+    buttons.forEach((btn, idx) => {
+      btn.addEventListener("click", () => playTrack(btn, true));
+      audio.addEventListener("ended", () => {
+        if (btn.classList.contains("is-active") && idx + 1 < buttons.length) {
+          playTrack(buttons[idx + 1], true);
+        }
+      });
+    });
+  });
+</script>
 </body>
 </html>
