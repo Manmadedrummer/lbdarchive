@@ -3,7 +3,7 @@
 Build the Lethal By Default Archive static site from SingleFile saves of the
 old Google Sites pages.
 
-Usage:  python3 build_site.py <source-pages-dir> <output-dir> [source-images-dir]
+Usage:  python3 build_site.py <source-pages-dir> <output-dir>
 
 Needs:  pip install beautifulsoup4 lxml pillow
 
@@ -26,6 +26,7 @@ SITE = "Lethal By Default Archive"
 PAGES = [
     ("", "Home", None),
     ("gravensuicide", "Graven-Suicide", "GravenSuicide"),
+    ("articles", "Articles", "Articles"),
     ("photos", "Photos", "Photos"),
     ("photos/cd-release", "CD Release (11/14/2009)", "CD Release"),
     ("photos/chataqua-park", "Chataqua Park (05/15/2010)", "Chataqua Park"),
@@ -294,7 +295,7 @@ def parse(path, pagepath):
                 continue
             nm, st = c.name, c.get("style", "")
             if nm in ("h1", "h2", "h3", "h4", "h5", "h6", "p"):
-                txt = c.get_text("", strip=True).replace("\xa0", " ")
+                txt = re.sub(r"\s+", " ", c.get_text("").replace("\xa0", " ")).strip()
                 if not txt:
                     continue
                 k, tgt = first_link(c)
@@ -359,6 +360,32 @@ for gp, folder in PHOTO_DIRS.items():
     else:
         pages[gp] = dict(path=gp, label=LABEL[gp], h1=LABEL[gp], blocks=[dict(t="gallery", files=files)])
     print("gallery", gp, len(files), "photos")
+def tracks(items):
+    return "<br>".join(f'{i:02d}. <a href="@@ext:{u}@@">{t}</a>' for i, (t, u) in enumerate(items, 1))
+
+
+def P(h):
+    return dict(t="p", html=h, text=re.sub(r"<[^>]+>", "", h), lk=None, lt=None)
+
+
+def H(txt):
+    return dict(t="h", level="h2", html=html.escape(txt), text=txt, lk=None, lt=None)
+
+
+DEMO = "albums-main/gsalbums/graven-suicide-demo"
+if DEMO not in pages:   # not saved yet: built from the live page's track list
+    D1 = [("Art of Sin", "https://1drv.ms/u/c/b90fa087904a09c7/IQBNNHyhdpqrT66WUG6dIo0VAY1YXKRh5TtvWjglVCbhArw?e=JX4vSP"),
+          ("Corner of My Mind", "https://1drv.ms/u/c/b90fa087904a09c7/IQBLzkjht3jTRJR6L6i2xeLwAUZNhTfN04YYhuHWPMjjnjo?e=cjtEMh"),
+          ("Paperplates", "https://1drv.ms/u/c/b90fa087904a09c7/IQA7NRqUQKmiS5wU0Tm13F4xAcZubYdym_ivQpXwiDWVsGQ?e=y4HP1a")]
+    D2 = [("Art of Sin", "https://1drv.ms/u/c/b90fa087904a09c7/IQCNZvHFeMyzRaU5_O-bpqBuARFyQMb6m8jLAcCaOHl7q08?e=FvKFQZ"),
+          ("Corner of My Mind", "https://1drv.ms/u/c/b90fa087904a09c7/IQA282n_VDnDRa81dq5QEZzCAZRfqzM6uSDAJZmWKLADyrk?e=V6mAQ7"),
+          ("Paperplates", "https://1drv.ms/u/c/b90fa087904a09c7/IQCSZz8pQ9cyTbZ9_lqXB0PFATavhJWdFT24hCbNEbLxvX0?e=3NTpqd")]
+    pages[DEMO] = dict(path=DEMO, label=LABEL[DEMO], h1="Graven Suicide - Demo", blocks=[
+        dict(t="file", file="GSDemo.jpg"), H("Graven Suicide - Demo"), P(tracks(D1)),
+        H("Remastered Version"), P(tracks(D2))])
+if "articles" not in pages:   # placeholder until the article files are added
+    pages["articles"] = dict(path="articles", label="Articles", h1="Articles", blocks=[
+        P("Articles about the band are being added here. Check back soon.")])
 missing = [p for p, _, ft in PAGES if ft and p not in pages]
 print("pages built:", len(pages), "| still not saved:", missing)
 
@@ -499,6 +526,9 @@ def render(page, first_gallery_thumb):
                     f'<article class="video"><div class="player"><iframe src="https://www.youtube-nocookie.com/embed/{x["id"]}" title="{title}" loading="lazy" '
                     f'allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe></div><div class="cap">{caption}</div></article>')
                 i = j; continue
+            elif x["t"] == "file":
+                f = web_copy(os.path.join(IMGSRC, x["file"]), f"{slugname}-cover", CARD_MAX)
+                body.append(f'<figure class="cover"><img src="{up}images/{f}" alt="{html.escape(page["h1"])} cover art"></figure>')
             elif x["t"] == "img":
                 album = cur.startswith("albums-main/")
                 f = store_image(x["data"], f"{slugname}-" + ("cover" if album else "image"))
@@ -511,7 +541,7 @@ def render(page, first_gallery_thumb):
                 cls = ' class="tracks"' if "1drv.ms" in x["html"] or "@@ext:" in x["html"] else ""
                 body.append(f'<p{cls}>{fix_links(x["html"], cur)}</p>')
             i += 1
-    nav = [("", "Home"), ("albums-main", "Albums"), ("video-main", "Videos"), ("photos", "Photos"), ("gravensuicide", "Graven-Suicide")]
+    nav = [("", "Home"), ("albums-main", "Albums"), ("video-main", "Videos"), ("photos", "Photos"), ("articles", "Articles")]
     navhtml = "".join(
         f'<a href="{rel(cur, p) if (p in pages or p == "") else OLD + p}"{" class=on" if (cur == p or (p and cur.startswith(p + "/"))) else ""}>{l}</a>' for p, l in nav)
     cr = crumbs(cur)
@@ -546,7 +576,7 @@ PAGE_TMPL = """<!doctype html>
   <h1>{h1}</h1>
   {body}
 </main>
-<footer>Lethal By Default Archive · Galesburg, IL</footer>
+<footer>Lethal By Default Archive · Galesburg, IL · <a href="{up}gravensuicide/index.html">Graven-Suicide</a></footer>
 <script src="{up}js/site.js"></script>
 </body>
 </html>
@@ -578,7 +608,7 @@ HOME_TMPL = """<!doctype html>
   </section>
   <div class="cards">{cards}</div>
 </main>
-<footer>Lethal By Default Archive · Galesburg, IL</footer>
+<footer>Lethal By Default Archive · Galesburg, IL · <a href="gravensuicide/index.html">Graven-Suicide</a></footer>
 </body>
 </html>
 """
@@ -627,7 +657,7 @@ for p, pg in pages.items():
     open(os.path.join(d, "index.html"), "w", encoding="utf-8").write(render(pg, first_gallery_thumb))
 
 # home page (hand built; the old home page held 4 picture links)
-nav = [("", "Home"), ("albums-main", "Albums"), ("video-main", "Videos"), ("photos", "Photos"), ("gravensuicide", "Graven-Suicide")]
+nav = [("", "Home"), ("albums-main", "Albums"), ("video-main", "Videos"), ("photos", "Photos"), ("articles", "Articles")]
 navhtml = "".join(f'<a href="{rel("", p)}"{" class=on" if p == "" else ""}>{l}</a>' for p, l in nav)
 art = {}
 if "albums-main" in pages:
@@ -644,7 +674,7 @@ def src_card(fn, name):
 
 
 for k, (fn, nm) in {"albums": ("Albums.png", "home-albums"), "videos": ("Video.png", "home-videos"),
-                    "photos": ("Photos.png", "home-photos"), "gs": ("GSLOGO.jpg", "home-graven-suicide")}.items():
+                    "photos": ("Photos.png", "home-photos"), "articles": ("Article.png", "home-articles")}.items():
     v = src_card(fn, nm)
     if v:
         art[k] = v
@@ -656,7 +686,7 @@ home_cards = [
     ("albums-main", "Albums", "Lethal By Default and Graven-Suicide albums, remixes and remasters.", art.get("albums")),
     ("video-main", "Videos", "Live shows and extras from both bands.", art.get("videos")),
     ("photos", "Photos", "Flyers, promo shots, live photos and more.", art.get("photos")),
-    ("gravensuicide", "Graven-Suicide", "The earlier band: albums and videos.", art.get("gs")),
+    ("articles", "Articles", "Articles and write-ups about the band.", art.get("articles")),
 ]
 chtml = []
 for p, t, dsc, im in home_cards:
@@ -723,6 +753,7 @@ h3{font-size:20px;margin:1.2em 0 .4em}
 .player{aspect-ratio:16/9;background:#000}.player iframe{width:100%;height:100%;border:0;display:block}
 .cap{padding:12px 16px}.cap p{margin:.2em 0}
 
+footer a{color:var(--muted)}footer a:hover{color:#fff}
 footer{text-align:center;color:var(--muted);font-size:13px;padding:22px 16px;border-top:1px solid var(--line);background:rgba(0,0,0,.7)}
 
 .hero{text-align:center;padding:24px 0 8px}
