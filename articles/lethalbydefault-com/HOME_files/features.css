@@ -1,0 +1,19 @@
+.blog-post { margin: 0 0 20px 0; }
+h1.blog-post-title { font-size: 18px; margin: 0 0 15px 0; }
+.blog-post-meta { border-top: 1px solid #ffffff; padding: 7px 0; font-size: 11px; }
+
+/* Localized zoom icon */
+.zoom {
+    font-size: 9px;
+    font-weight: bold;
+    background: url(HOME_files/zoom.gif) 0 0 no-repeat;
+    padding: 0 0 5px 20px;
+}
+
+/* Social icons use a local sprite image */
+ul.social li a {
+    display: block;
+    width: 32px;
+    height: 32px;
+    background: url(HOME_files/social-icons.png) no-repeat;
+}

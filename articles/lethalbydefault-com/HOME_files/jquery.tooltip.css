@@ -1,0 +1,9 @@
+#tooltip {
+	position: absolute;
+	z-index: 3000;
+	background-color: #696969;
+	color: white;
+	padding: 7px;
+	border-radius: 5px;
+}
+#tooltip h3 { color: white !important; font-size: 12px !important; }

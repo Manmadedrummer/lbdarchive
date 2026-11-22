@@ -1,0 +1,200 @@
+/* template id: custom_lethalbydefault - restored archive */
+
+/* 1. GLOBAL SETTINGS & BACKGROUND */
+body {
+    margin: 0px;
+    background-color: #000000 !important;
+    text-align: center;
+    color: #ffffff;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 12px;
+}
+
+#container {
+    width: 960px;
+    margin: 0 auto;
+    padding-top: 53px;
+    position: relative;
+    text-align: left;
+}
+
+/* 2. NAVIGATION LAYOUT */
+.navigation {
+    padding: 2px;
+    clear: both;
+    display: block;
+    position: relative;
+    z-index: 999;
+}
+
+.navMenu {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-align: center;
+}
+
+.navMenu li.top {
+    display: inline-block;
+    position: relative; 
+    margin: 0 15px;
+    vertical-align: top;
+}
+
+/* 3. SUBMENU FIX */
+.navMenu li ul {
+    position: absolute;
+    top: 45px !important; 
+    left: 0;
+    visibility: hidden; 
+    background-color: #000000;
+    border: 1px solid #444; 
+    padding: 5px 0;
+    margin: 0;
+    list-style: none;
+    z-index: 10000;
+    width: auto !important; 
+    min-width: 125px;
+    white-space: nowrap;
+}
+
+.navMenu li ul li {
+    display: block !important;
+    width: 100% !important;
+    float: none !important;
+    background-color: #000000 !important;
+    text-align: left;
+}
+
+.navMenu li ul li a {
+    display: inline-block !important; 
+    padding: 8px 15px;
+    color: #FFFFFF !important;
+    text-decoration: none;
+    font-size: 11px;
+}
+
+.navMenu li ul li a:hover {
+    background-color: #ff0000 !important;
+    color: #ffffff !important;
+}
+
+/* 4. PHOTO GALLERY GRID FIX */
+.photos.small {
+    width: 960px !important;
+    padding: 0 !important;
+    margin: 0 auto !important;
+    display: block;
+}
+
+.photos.small .cell {
+    display: inline-block !important;
+    width: 160px !important; 
+    margin: 10px 0px !important;
+    padding: 0px !important;
+    vertical-align: top;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.photos.small .cell img {
+    border: none !important;
+    padding: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    max-width: 140px;
+    height: auto;
+}
+
+/* 5. CONTENT AREA & TYPOGRAPHY */
+.content {
+    background-color: transparent;
+    padding: 20px;
+    line-height: 160%;
+}
+
+.base { color: #ffffff; }
+.base a { color: #ff0000; }
+.base a:hover { color: #ffffff; }
+
+a:link, a:visited { color: #ff0000; text-decoration: none; }
+a:hover { color: #ffffff; }
+
+h1, h2, h3, h4, h5 { 
+    color: #ffffff !important; 
+    font-weight: bold; 
+    font-size: medium;
+}
+
+.clear { clear: both; }
+
+.footertext {
+    color: #ffffff;
+    font-size: 11px;
+    padding: 20px 0;
+    text-align: center;
+}
+
+/* 6. TABLE ALIGNMENT (EVENTS & STORE) */
+.events-table, .store-table {
+    width: 100% !important;
+    border-collapse: collapse;
+}
+
+.events-table th, .events-table td,
+.store-table th, .store-table td {
+    text-align: left;
+    padding: 10px 5px;
+    vertical-align: top;
+}
+
+.events-table th, .store-table th {
+    font-weight: bold;
+    color: #ff0000;
+    text-transform: uppercase;
+    font-size: 11px;
+}
+
+/* Specific Column Widths */
+.events-table .date { width: 140px; }
+.events-table .time { width: 80px; }
+.events-table .event { width: 220px; }
+.events-table .location { width: auto; }
+.events-table .info { width: 90px; text-align: right; }
+
+.store-table th { width: 150px; } /* Width for T-shirt image column */
+
+/* 7. FACEBOX POPUP POSITIONING FIX */
+#facebox {
+    text-align: left !important;
+    position: fixed !important; /* Locks to the screen viewport */
+    top: 50% !important;
+    left: 50% !important;
+    z-index: 10001;
+    transform: translate(-50%, -50%); /* Perfectly centers horizontally and vertically */
+}
+
+#facebox .popup {
+    position: relative;
+    border: 2px solid #333;
+    background: #111; /* Dark background for popups */
+    color: #fff;
+}
+
+#facebox .body {
+    padding: 15px;
+    background: #111;
+}
+
+#facebox .cntent {
+    width: auto;
+    min-width: 300px;
+}
+
+#facebox_overlay {
+    background-color: #000;
+}
+
+/* 8. MISC COMPATIBILITY */
+.track-lyrics a { color: #ffffff; }
+.track-lyrics a:hover { color: #ff0000; }
