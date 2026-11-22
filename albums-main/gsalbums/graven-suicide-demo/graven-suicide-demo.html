@@ -13,20 +13,60 @@
 <style>
   .web-player {
     margin: 0.75rem 0 1rem;
-    padding: 0.85rem;
+    padding: 0.9rem;
     max-width: 640px;
-    border: 1px solid rgba(255, 255, 255, 0.14);
+    border: 1px solid #450a0a;
     border-radius: 6px;
-    background: rgba(0, 0, 0, 0.25);
+    background: #09090b;
+    color: #ef4444;
   }
   .web-player__now {
     font-size: 0.9rem;
-    margin-bottom: 0.5rem;
-    opacity: 0.85;
+    font-weight: 600;
+    margin-bottom: 0.55rem;
+    color: #f87171;
   }
   .web-player audio {
     width: 100%;
     margin-bottom: 0.65rem;
+    color-scheme: dark;
+  }
+  .web-player__progress-row {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    margin-bottom: 0.75rem;
+    font-size: 0.8rem;
+    font-variant-numeric: tabular-nums;
+    color: #ef4444;
+  }
+  .web-player__seek {
+    -webkit-appearance: none;
+    appearance: none;
+    flex: 1;
+    height: 8px;
+    border-radius: 999px;
+    background: linear-gradient(to right, #dc2626 0%, #dc2626 var(--pct, 0%), #27272a var(--pct, 0%), #27272a 100%);
+    cursor: pointer;
+    outline: none;
+  }
+  .web-player__seek::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #ef4444;
+    border: 2px solid #09090b;
+    cursor: pointer;
+  }
+  .web-player__seek::-moz-range-thumb {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #ef4444;
+    border: 2px solid #09090b;
+    cursor: pointer;
   }
   .tracklist {
     list-style: none;
@@ -40,17 +80,18 @@
     width: 100%;
     text-align: left;
     padding: 0.45rem 0.65rem;
-    border: 1px solid rgba(255, 255, 255, 0.12);
+    border: 1px solid #3f1111;
     border-radius: 4px;
-    background: rgba(255, 255, 255, 0.04);
-    color: inherit;
+    background: #111113;
+    color: #ef4444;
     font: inherit;
     cursor: pointer;
   }
   .track-btn:hover,
   .track-btn.is-active {
-    background: rgba(255, 255, 255, 0.16);
-    border-color: rgba(255, 255, 255, 0.35);
+    background: #2a0909;
+    border-color: #dc2626;
+    color: #fca5a5;
   }
 </style>
 </head>
@@ -68,6 +109,11 @@
   <div class="web-player" data-player="demo">
     <div class="web-player__now">Select a track to play</div>
     <audio controls preload="metadata"></audio>
+    <div class="web-player__progress-row">
+      <span class="web-player__current">0:00</span>
+      <input type="range" class="web-player__seek" min="0" max="100" value="0" step="0.1" aria-label="Seek position">
+      <span class="web-player__duration">0:00</span>
+    </div>
     <ul class="tracklist">
       <li><button type="button" class="track-btn" data-src="https://archive.org/download/Graven-Suicide-Demo/01%20Art%20of%20Sin.mp3" data-title="01. Art of Sin">01. Art of Sin</button></li>
       <li><button type="button" class="track-btn" data-src="https://archive.org/download/Graven-Suicide-Demo/02%20Corner%20of%20My%20Mind.mp3" data-title="02. Corner of My Mind">02. Corner of My Mind</button></li>
@@ -80,10 +126,15 @@
   <div class="web-player" data-player="remastered">
     <div class="web-player__now">Select a track to play</div>
     <audio controls preload="metadata"></audio>
+    <div class="web-player__progress-row">
+      <span class="web-player__current">0:00</span>
+      <input type="range" class="web-player__seek" min="0" max="100" value="0" step="0.1" aria-label="Seek position">
+      <span class="web-player__duration">0:00</span>
+    </div>
     <ul class="tracklist">
-      <li><button type="button" class="track-btn" data-src="https://archive.org/download/GSDemo-Remastered/01%20Art%20of%20Sin.mp3" data-title="01. Art of Sin (Remastered)">01. Art of Sin</button></li>
-      <li><button type="button" class="track-btn" data-src="https://archive.org/download/GSDemo-Remastered/02%20Corner%20of%20My%20Mind.mp3" data-title="02. Corner of My Mind (Remastered)">02. Corner of My Mind</button></li>
-      <li><button type="button" class="track-btn" data-src="https://archive.org/download/GSDemo-Remastered/03%20Paper%20Plates.mp3" data-title="03. Paperplates (Remastered)">03. Paperplates</button></li>
+      <li><button type="button" class="track-btn" data-src="https://archive.org/download/GSDemo-Remastered/01%20Art%20of%20Sin%20%28Remastered%29.mp3" data-title="01. Art of Sin (Remastered)">01. Art of Sin</button></li>
+      <li><button type="button" class="track-btn" data-src="https://archive.org/download/GSDemo-Remastered/02%20Corner%20of%20My%20Mind%20%28Remastered%29.mp3" data-title="02. Corner of My Mind (Remastered)">02. Corner of My Mind</button></li>
+      <li><button type="button" class="track-btn" data-src="https://archive.org/download/GSDemo-Remastered/02%20Paper%20Plates%20%28Remastered%29.mp3" data-title="03. Paperplates (Remastered)">03. Paperplates</button></li>
     </ul>
   </div>
   <p class="tracks">01. <a href="https://1drv.ms/u/c/b90fa087904a09c7/IQCNZvHFeMyzRaU5_O-bpqBuARFyQMb6m8jLAcCaOHl7q08?e=FvKFQZ" target="_blank" rel="noopener">Art of Sin</a><br>02. <a href="https://1drv.ms/u/c/b90fa087904a09c7/IQA282n_VDnDRa81dq5QEZzCAZRfqzM6uSDAJZmWKLADyrk?e=V6mAQ7" target="_blank" rel="noopener">Corner of My Mind</a><br>03. <a href="https://1drv.ms/u/c/b90fa087904a09c7/IQCSZz8pQ9cyTbZ9_lqXB0PFATavhJWdFT24hCbNEbLxvX0?e=3NTpqd" target="_blank" rel="noopener">Paperplates</a></p>
@@ -91,10 +142,26 @@
 <footer>Lethal By Default Archive · Galesburg, IL · <a href="../../../gravensuicide/gravensuicide.html">Graven-Suicide</a></footer>
 <script src="../../../js/site.js"></script>
 <script>
+  function formatTime(sec) {
+    if (!Number.isFinite(sec) || sec < 0) return "0:00";
+    const mins = Math.floor(sec / 60);
+    const rem = Math.floor(sec % 60);
+    return mins + ":" + String(rem).padStart(2, "0");
+  }
+
   document.querySelectorAll(".web-player").forEach((player) => {
     const audio = player.querySelector("audio");
     const nowPlaying = player.querySelector(".web-player__now");
+    const seek = player.querySelector(".web-player__seek");
+    const currentEl = player.querySelector(".web-player__current");
+    const durationEl = player.querySelector(".web-player__duration");
     const buttons = Array.from(player.querySelectorAll(".track-btn"));
+
+    function setProgressBar(pct) {
+      const clamped = Math.max(0, Math.min(100, pct));
+      seek.value = clamped;
+      seek.style.setProperty("--pct", clamped + "%");
+    }
 
     function playTrack(btn, autoPlay = true) {
       const src = btn.getAttribute("data-src");
@@ -104,11 +171,35 @@
       buttons.forEach((b) => b.classList.remove("is-active"));
       btn.classList.add("is-active");
       nowPlaying.textContent = "Playing: " + title;
+      setProgressBar(0);
+      currentEl.textContent = "0:00";
+      durationEl.textContent = "0:00";
       audio.src = src;
       if (autoPlay) {
         audio.play().catch(() => {});
       }
     }
+
+    audio.addEventListener("loadedmetadata", () => {
+      durationEl.textContent = formatTime(audio.duration);
+    });
+
+    audio.addEventListener("timeupdate", () => {
+      if (Number.isFinite(audio.duration) && audio.duration > 0) {
+        const pct = (audio.currentTime / audio.duration) * 100;
+        setProgressBar(pct);
+      }
+      currentEl.textContent = formatTime(audio.currentTime);
+    });
+
+    seek.addEventListener("input", () => {
+      const pct = parseFloat(seek.value) || 0;
+      seek.style.setProperty("--pct", pct + "%");
+      if (Number.isFinite(audio.duration) && audio.duration > 0) {
+        audio.currentTime = (pct / 100) * audio.duration;
+        currentEl.textContent = formatTime(audio.currentTime);
+      }
+    });
 
     buttons.forEach((btn, idx) => {
       btn.addEventListener("click", () => playTrack(btn, true));
