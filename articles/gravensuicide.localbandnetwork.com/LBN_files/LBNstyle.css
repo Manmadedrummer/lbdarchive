@@ -1,0 +1,284 @@
+﻿/* CSS definition file containing sitestyle stylesheets */
+.loginad{
+	border-color : Red;
+	border-style : solid;
+	border-width : thin;
+	background : Silver;
+	padding : 4px;
+}
+BODY {
+	padding : 0;
+	margin-top : 10px; 
+	margin-right : 20px; 
+	margin-bottom : 20px; 
+	margin-left : 20px; 
+	margin : 0; border-left-width:0; border-right-width:0; border-bottom-width:0
+}
+ A:link {
+	font-family: Arial;
+	color: #0000FF;
+}
+ A:active {
+	color : #66FF33;
+}
+A:hover {
+	color : #FF0033;
+}
+ A:visited {
+	font-family: Arial;
+	color: #330066;
+}
+PRE{
+		font-family: Arial;
+	line-height : 1.0;
+	font-size : 10pt;
+}
+H1 {
+	font-size: 24pt;
+	font-family:'Helvetica';
+	text-align: Center;
+	margin-bottom: 6;
+	font-weight: bold;
+	font-style : italic;
+}
+H2  {
+	font-size: 16pt;
+	font-family:'Helvetica';
+	font-weight: bold;
+	font-style : italic;
+}
+H3  {
+	font-size: 12pt;
+	font-family:'Helvetica';
+	font-weight: bold;
+	font-style : italic;
+}
+.h1{
+	font-size: 24pt;
+	font-family:'Helvetica';
+	font-weight: bold;
+	font-style : italic;
+}
+.h2{
+	font-size: 16pt;
+	font-family:'Helvetica';
+	font-weight: bold;
+	font-style : italic;
+}
+.h3{
+	font-size: 12pt;
+	font-family:'Helvetica';
+	font-weight: bold;
+	font-style : italic;
+}
+td.details{
+	font-family : Arial;
+	font-size: x-small;
+}
+
+p            {
+	font-family: Arial;
+	line-height : 1.0;
+	font-size : 10pt;
+}
+p.b            { font-family: Arial; font-weight: bold }
+p.bi            {	font-family: Arial;	font-weight: bold;	font-style : italic;}
+p.c {
+	text-align : center;
+}
+p.bil{
+	font-family: Arial;
+	font-weight: bold;
+	font-style : italic;
+	font-size : larger;
+}
+p.small {
+	font-size : x-small;
+}
+p.smallc{
+	font-size : x-small;
+	text-align : center;
+}
+p.notice{
+	background-color : Yellow;
+}
+
+font.small{
+	font-size : x-small;
+}
+font.xsmall {
+	font-size : xx-small;
+}
+hr {
+	color : Silver;
+	height : 5;
+	border-color : Gray;
+	border : medium;
+	width : 100%;
+}
+table {	border : 0px none;	padding : 0;	width : 100%;	margin : 0;}
+table.forms{
+	padding : 1;
+	margin : 3;
+}
+tr {
+	vertical-align : top;
+	text-align : left;
+	padding : 0;
+	margin : 1;
+}
+.featured{
+	background-color: Yellow;
+}
+.detailmain{
+	background-color : #FF3333;
+	color: White;
+	font-family:'Impact','Arial Black', 'Helvetica Black', 'LB Helvetica Black', 'Univers Black', 'Zurich Blk BT', sans-serif;
+	font-style : italic;
+	font-size : larger;
+	vertical-align : top;
+	font-weight : bold;
+}
+.detailnews{
+	background-color : #FFFF33;
+	color: White;
+	font-family:'Impact','Arial Black', 'Helvetica Black', 'LB Helvetica Black', 'Univers Black', 'Zurich Blk BT', sans-serif;
+	font-style : italic;
+	font-size : larger;
+	vertical-align : top;
+	font-weight : bold;
+}
+.detailmusic{
+	background-color : #3399FF;
+	color: White;
+	font-family:'Impact','Arial Black', 'Helvetica Black', 'LB Helvetica Black', 'Univers Black', 'Zurich Blk BT', sans-serif;
+	font-style : italic;
+	font-size : larger;
+	vertical-align : top;
+	font-weight : bold;
+}
+.detailcontact {
+	background-color : #CCFF66;
+	color: White;
+	font-family:'Impact','Arial Black', 'Helvetica Black', 'LB Helvetica Black', 'Univers Black', 'Zurich Blk BT', sans-serif;
+	font-style : italic;
+	font-size : larger;
+	font-weight : bold;
+	vertical-align : top;
+}
+.detailtext{
+	font-family: Arial;
+	margin-left : 5%;
+}
+.detaillabel {
+		font-family : Arial;
+		font-weight : bold;
+		
+}
+td.header{
+	text-align : center;
+}
+td.lists {
+	padding-bottom : 4pt;
+}
+td {font-family: Arial;
+	vertical-align : top;
+	text-align : left;
+	padding : 0;
+	font-size: 10pt;
+	margin : 1;
+}
+td.formfield{
+
+}
+td.formlabel{
+	font-weight : bolder;
+	width: 25%;
+}
+td.right{
+	text-align : right;
+}
+.topad{
+	text-align : center;
+	background-color : #c0c0c0;
+	margin:0px;
+	padding:0px;
+}
+td.sidebarleft{
+	width : 15%;
+	background-color : #c0c0c0;
+}
+td.sidebarright{
+	width : 10%;
+	background-color : #c0c0c0;
+}
+td.body {
+	width: 75%;
+}
+p.sidebarleft {
+	background-color : #c0c0c0;
+	line-height : normal;
+	margin-bottom : 0;
+	margin-top : 0;
+}
+p.sidebarleft a:link {
+	font-family : 'Helvetica';
+	color : Red;
+	text-decoration : none;
+	font-weight: bold;
+}
+p.sidebarleft a:visited {
+	font-family : 'Helvetica';
+	color : Red;
+	text-decoration : none;
+	font-weight: bold;
+}
+p.sidebarleft a:hover {
+	font-family : 'Helvetica';
+	color : Blue;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+img{
+	border : 0px none;
+	padding : 0;
+	margin: 0
+}
+
+p.LBNPageHeader {
+	font-size: 24pt;
+	font-family:'Helvetica';
+	text-align: Center;
+	margin-bottom: 6;
+	font-style : italic;
+	font-weight:bold;
+}
+p.LBNPageSubHead   { 
+	font-size: 16pt; 
+	font-family:'Helvetica';
+	font-weight:bold;
+	}
+p.LBNPageSubHead2   { 
+	font-size: 12pt; 
+	font-family:'Helvetica';
+	font-weight:bold;
+	}
+.longtext{
+		margin-top : 10px; 
+	margin-right : 20px; 
+	margin-bottom : 20px; 
+	margin-left : 20px; 
+}
+
+.adHeadline { font-size:10pt; font-weight:bold; }
+.adText { font-size:8pt; font-weight:normal; text-decoration:none; }
+
+.jvalx-invalid-field {
+	background-color:#ffc;
+	border-color:#f00;
+}
+
+.jvalx-invalid-label {
+	color:#f00;
+}

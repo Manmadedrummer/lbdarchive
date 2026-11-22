@@ -1,1 +1,0 @@
-Copy BookingLocalActs.html, CupcakeFestival.html, PigeonHole.html, PokerRun.html, RelayForLife.html and TriStateBattle.html (and any images/folders they use) into this folder.
