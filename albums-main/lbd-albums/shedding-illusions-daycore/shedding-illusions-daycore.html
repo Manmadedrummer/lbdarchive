@@ -10,6 +10,80 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../../css/style.css">
+<style>
+  .web-player {
+    margin: 0.75rem 0 1rem;
+    padding: 0.9rem;
+    max-width: 640px;
+    border-radius: 6px;
+    background: #090b0f;
+  }
+  .web-player__now {
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 0.6rem;
+  }
+  .web-player audio {
+    width: 100%;
+    margin-bottom: 0.7rem;
+    color-scheme: dark;
+  }
+  .tracklist {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .tracklist li + li {
+    margin-top: 0.35rem;
+  }
+  .track-btn {
+    width: 100%;
+    text-align: left;
+    padding: 0.45rem 0.65rem;
+    border-radius: 4px;
+    background: #101318;
+    font: inherit;
+    cursor: pointer;
+  }
+
+  /* Daycore: icy aqua / cyan (#67e8f9 / #22d3ee) */
+  .web-player--daycore {
+    border: 1px solid #164e63;
+    color: #67e8f9;
+  }
+  .web-player--daycore .web-player__now {
+    color: #a5f3fc;
+  }
+  .web-player--daycore .track-btn {
+    border: 1px solid #153e4d;
+    color: #67e8f9;
+  }
+  .web-player--daycore .track-btn:hover,
+  .web-player--daycore .track-btn.is-active {
+    background: #0c2630;
+    border-color: #22d3ee;
+    color: #cffafe;
+  }
+
+  /* Nightcore: glowing rose / pink (#f472b6 / #ec4899) */
+  .web-player--nightcore {
+    border: 1px solid #831843;
+    color: #f472b6;
+  }
+  .web-player--nightcore .web-player__now {
+    color: #fbcfe8;
+  }
+  .web-player--nightcore .track-btn {
+    border: 1px solid #50122c;
+    color: #f472b6;
+  }
+  .web-player--nightcore .track-btn:hover,
+  .web-player--nightcore .track-btn.is-active {
+    background: #290b18;
+    border-color: #ec4899;
+    color: #fce7f3;
+  }
+</style>
 </head>
 <body>
 <header class="top">
@@ -20,19 +94,68 @@
   <nav class="crumbs" aria-label="Breadcrumb"><a href="../../../index.html">Home</a> <span>/</span> <a href="../../../albums-main/albums-main.html">Albums</a> <span>/</span> <a href="../../../albums-main/lbd-albums/lbd-albums.html">Lethal By Default Albums</a> <span>/</span> Shedding Illusions (Day~Night)</nav>
   <h1>Shedding Illusions (Day~Night)</h1>
   <figure class="cover"><img src="../../../images/albums-main-lbd-albums-shedding-illusions-daycore-cover.jpg" alt="Shedding Illusions (Day~Night) cover art"></figure>
-<h2>Shedding Illusions (Daycore Remix)</h2>
-<p class="tracks">01. <a href="https://1drv.ms/u/c/b90fa087904a09c7/IQABlIZEuXI6QK3ZjiUmY2VqAUgG2dIbxZgZeDxHoYkT5HY?e=a5PcvZ" target="_blank" rel="noopener">Dementia (Daycore Remix)<br></a>02. <a href="https://1drv.ms/u/c/b90fa087904a09c7/IQA5BShL0sA_QoljtC0zMJwcAaqg0wWM54r1MTksRAFpUIQ?e=M8wbsL" target="_blank" rel="noopener">My Friend Misery (Daycore Remix)</a></p>
-<p class="tracks">03. <a href="https://1drv.ms/u/c/b90fa087904a09c7/IQAc63EKyJitTI3nSp5twtQIAX-HjTHQ7UJBRLbzoZjgkgA?e=XefgS3" target="_blank" rel="noopener">Fading Away (Daycore Remix)</a></p>
-<p class="tracks">04. <a href="https://1drv.ms/u/c/b90fa087904a09c7/IQA3VwvTMLfUSpC-W3QDDjbcAUeI9N-rUOFRqKg2bm_Pa-U?e=PjwQHj" target="_blank" rel="noopener">War of 1000 Lies (Daycore Remix)</a></p>
-<p class="tracks">05. <a href="https://1drv.ms/u/c/b90fa087904a09c7/IQABwZcEMbDSSohkKG_2rWenAQvvT4PbE8OIUF5cjtg0XQ4?e=E18nBX" target="_blank" rel="noopener">When I Betray (Daycore Remix)<br></a>06. <a href="https://1drv.ms/u/c/b90fa087904a09c7/IQAI-ObFen-aSLDiLsp5u-V7AQVSZJs-P5mNNfKlTWSNZ8w?e=uahvny" target="_blank" rel="noopener">One More Day (Daycore Remix)</a></p>
-<figure class="cover"><img src="../../../images/albums-main-lbd-albums-shedding-illusions-daycore-cover-2.jpg" alt="Shedding Illusions (Day~Night) cover art"></figure>
-<h2>Shedding Illusions (Nightcore Remix)</h2>
-<p class="tracks">01. <a href="https://1drv.ms/u/c/b90fa087904a09c7/IQCN2C69vjD6SIrVDZzPVkkCARlcrZwUOM4YzBv_GTyRkRw?e=69va3a" target="_blank" rel="noopener">Dementia (Nightcore Remix)<br></a>02. <a href="https://1drv.ms/u/c/b90fa087904a09c7/IQA2JIpsSlp4TK0GP400ZQdlARekEbAl0YA8x9JWizTkTT8?e=c3zZPt" target="_blank" rel="noopener">My Friend Misery (Nightcore Remix)</a></p>
-<p class="tracks">03. <a href="https://1drv.ms/u/c/b90fa087904a09c7/IQCHCBbX0NdpT6h5nZON6-P9AUgG957aaoZ_doT1oMlVXxo?e=99bsJ2" target="_blank" rel="noopener">Fading Away (Nightcore Remix)</a></p>
-<p class="tracks">04. <a href="https://1drv.ms/u/c/b90fa087904a09c7/IQADHS1aKFMNTaUrO_xoqynpAaDJ5Dg8A6MRRQvwUS__6jA?e=yT3wbW" target="_blank" rel="noopener">War of 1000 Lies (Nightcore Remix)</a></p>
-<p class="tracks">05. <a href="https://1drv.ms/u/c/b90fa087904a09c7/IQAfLr5ENeHzQ4mWNCGnGzZ-AWhe4NvGjReSs97n5pL5ESo?e=Qj9avw" target="_blank" rel="noopener">When I Betray (Nightcore Remix)<br></a>06. <a href="https://1drv.ms/u/c/b90fa087904a09c7/IQB9TojQdoNLQJDCJChx6E6KAUrEDY2_rVGebUOXaMq9PPE?e=Aq244F" target="_blank" rel="noopener">One More Day (Nightcore Remix)</a></p>
+
+  <h2>Shedding Illusions (Daycore Remix)</h2>
+  <div class="web-player web-player--daycore" data-player="shedding-illusions-daycore">
+    <div class="web-player__now">Select a track to play</div>
+    <audio controls preload="metadata"></audio>
+    <ul class="tracklist">
+      <li><button type="button" class="track-btn" data-src="https://archive.org/download/LBD-SIDaycore/01%20Dementia%20%28Daycore%20Remix%29.mp3" data-title="01. Dementia (Daycore Remix)">01. Dementia (Daycore Remix)</button></li>
+      <li><button type="button" class="track-btn" data-src="https://archive.org/download/LBD-SIDaycore/02%20My%20Friend%20Misery%20%28Daycore%20Remix%29.mp3" data-title="02. My Friend Misery (Daycore Remix)">02. My Friend Misery (Daycore Remix)</button></li>
+      <li><button type="button" class="track-btn" data-src="https://archive.org/download/LBD-SIDaycore/03%20Fading%20Away%20%28Daycore%20Remix%29.mp3" data-title="03. Fading Away (Daycore Remix)">03. Fading Away (Daycore Remix)</button></li>
+      <li><button type="button" class="track-btn" data-src="https://archive.org/download/LBD-SIDaycore/04%20War%20of%201000%20Lies%20%28Daycore%20Remix%29.mp3" data-title="04. War of 1000 Lies (Daycore Remix)">04. War of 1000 Lies (Daycore Remix)</button></li>
+      <li><button type="button" class="track-btn" data-src="https://archive.org/download/LBD-SIDaycore/05%20When%20I%20Betray%20%28Daycore%20Remix%29.mp3" data-title="05. When I Betray (Daycore Remix)">05. When I Betray (Daycore Remix)</button></li>
+      <li><button type="button" class="track-btn" data-src="https://archive.org/download/LBD-SIDaycore/06%20One%20More%20Day%20%28Daycore%20Remix%29.mp3" data-title="06. One More Day (Daycore Remix)">06. One More Day (Daycore Remix)</button></li>
+    </ul>
+  </div>
+
+  <figure class="cover"><img src="../../../images/albums-main-lbd-albums-shedding-illusions-daycore-cover-2.jpg" alt="Shedding Illusions (Day~Night) cover art"></figure>
+
+  <h2>Shedding Illusions (Nightcore Remix)</h2>
+  <div class="web-player web-player--nightcore" data-player="shedding-illusions-nightcore">
+    <div class="web-player__now">Select a track to play</div>
+    <audio controls preload="metadata"></audio>
+    <ul class="tracklist">
+      <li><button type="button" class="track-btn" data-src="https://archive.org/download/LBD-SINightcore/01%20Dementia%20%28Nightcore%29.mp3" data-title="01. Dementia (Nightcore Remix)">01. Dementia (Nightcore Remix)</button></li>
+      <li><button type="button" class="track-btn" data-src="https://archive.org/download/LBD-SINightcore/02%20My%20Friend%20Misery%20%28Nightcore%29.mp3" data-title="02. My Friend Misery (Nightcore Remix)">02. My Friend Misery (Nightcore Remix)</button></li>
+      <li><button type="button" class="track-btn" data-src="https://archive.org/download/LBD-SINightcore/03%20Fading%20Away%20%28Nightcore%29.mp3" data-title="03. Fading Away (Nightcore Remix)">03. Fading Away (Nightcore Remix)</button></li>
+      <li><button type="button" class="track-btn" data-src="https://archive.org/download/LBD-SINightcore/04%20War%20of%201000%20Lies%20%28Nightcore%29.mp3" data-title="04. War of 1000 Lies (Nightcore Remix)">04. War of 1000 Lies (Nightcore Remix)</button></li>
+      <li><button type="button" class="track-btn" data-src="https://archive.org/download/LBD-SINightcore/05%20When%20I%20Betray%20%28Nightcore%29.mp3" data-title="05. When I Betray (Nightcore Remix)">05. When I Betray (Nightcore Remix)</button></li>
+      <li><button type="button" class="track-btn" data-src="https://archive.org/download/LBD-SINightcore/06%20One%20More%20Day%20%28Nightcore%29.mp3" data-title="06. One More Day (Nightcore Remix)">06. One More Day (Nightcore Remix)</button></li>
+    </ul>
+  </div>
 </main>
 <footer>Lethal By Default Archive · Galesburg, IL · <a href="../../../gravensuicide/gravensuicide.html">Graven-Suicide</a></footer>
 <script src="../../../js/site.js"></script>
+<script>
+  document.querySelectorAll(".web-player").forEach((player) => {
+    const audio = player.querySelector("audio");
+    const nowPlaying = player.querySelector(".web-player__now");
+    const buttons = Array.from(player.querySelectorAll(".track-btn"));
+
+    function playTrack(btn, autoPlay = true) {
+      const src = btn.getAttribute("data-src");
+      const title = btn.getAttribute("data-title") || btn.textContent.trim();
+      if (!src) return;
+
+      buttons.forEach((b) => b.classList.remove("is-active"));
+      btn.classList.add("is-active");
+      nowPlaying.textContent = "Playing: " + title;
+      audio.src = src;
+      if (autoPlay) {
+        audio.play().catch(() => {});
+      }
+    }
+
+    buttons.forEach((btn, idx) => {
+      btn.addEventListener("click", () => playTrack(btn, true));
+      audio.addEventListener("ended", () => {
+        if (btn.classList.contains("is-active") && idx + 1 < buttons.length) {
+          playTrack(buttons[idx + 1], true);
+        }
+      });
+    });
+  });
+</script>
 </body>
 </html>
