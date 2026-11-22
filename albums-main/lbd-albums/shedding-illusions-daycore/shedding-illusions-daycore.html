@@ -12,21 +12,26 @@
 <link rel="stylesheet" href="../../../css/style.css">
 <style>
   .album-hero {
-    display: flex;
-    align-items: flex-start;
+    display: grid;
+    grid-template-columns: auto minmax(260px, 1fr);
+    align-items: start;
     gap: 1.5rem;
-    flex-wrap: wrap;
-    margin-bottom: 1.25rem;
+    margin: 0.75rem 0 1.25rem;
+    max-width: 960px;
   }
   .album-hero .cover {
     margin: 0;
-    flex-shrink: 0;
+    width: auto;
+  }
+  .album-hero .cover img {
+    display: block;
+    max-width: 320px;
+    height: auto;
   }
   .mix-notes {
-    flex: 1;
-    min-width: 260px;
-    max-width: 520px;
-    padding: 0.9rem 1.1rem;
+    width: auto;
+    max-width: none;
+    padding: 0.9rem 1.15rem;
     border: 1px solid rgba(255, 255, 255, 0.14);
     border-radius: 6px;
     background: rgba(9, 11, 15, 0.78);
@@ -53,6 +58,15 @@
   }
   .mix-notes__nightcore {
     color: #f472b6;
+  }
+
+  @media (max-width: 680px) {
+    .album-hero {
+      grid-template-columns: 1fr;
+    }
+    .album-hero .cover img {
+      max-width: 100%;
+    }
   }
 
   .web-player {
