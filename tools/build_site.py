@@ -394,10 +394,16 @@ def depth(p):
     return 0 if p == "" else p.count("/") + 1
 
 
+def fname(p):
+    """Every page gets its own file name (the last part of its path), so no two files are both called index.html.
+    Only the home page stays index.html, because GitHub Pages needs it at the root."""
+    return "index.html" if p == "" else p.split("/")[-1] + ".html"
+
+
 def rel(from_p, to_p, file=True):
     """relative URL from page from_p to page to_p (index.html explicit so it works from disk)."""
     up = "../" * depth(from_p)
-    return up + (to_p + "/" if to_p else "") + "index.html"
+    return up + (to_p + "/" + fname(to_p) if to_p else "index.html")
 
 
 def fix_links(h, cur):
@@ -576,7 +582,7 @@ PAGE_TMPL = """<!doctype html>
   <h1>{h1}</h1>
   {body}
 </main>
-<footer>Lethal By Default Archive · Galesburg, IL · <a href="{up}gravensuicide/index.html">Graven-Suicide</a></footer>
+<footer>Lethal By Default Archive · Galesburg, IL · <a href="{up}gravensuicide/gravensuicide.html">Graven-Suicide</a></footer>
 <script src="{up}js/site.js"></script>
 </body>
 </html>
@@ -608,7 +614,7 @@ HOME_TMPL = """<!doctype html>
   </section>
   <div class="cards">{cards}</div>
 </main>
-<footer>Lethal By Default Archive · Galesburg, IL · <a href="gravensuicide/index.html">Graven-Suicide</a></footer>
+<footer>Lethal By Default Archive · Galesburg, IL · <a href="gravensuicide/gravensuicide.html">Graven-Suicide</a></footer>
 </body>
 </html>
 """
@@ -654,7 +660,7 @@ for p, pg in pages.items():
 for p, pg in pages.items():
     d = os.path.join(OUT, p)
     os.makedirs(d, exist_ok=True)
-    open(os.path.join(d, "index.html"), "w", encoding="utf-8").write(render(pg, first_gallery_thumb))
+    open(os.path.join(d, fname(p)), "w", encoding="utf-8").write(render(pg, first_gallery_thumb))
 
 # home page (hand built; the old home page held 4 picture links)
 nav = [("", "Home"), ("albums-main", "Albums"), ("video-main", "Videos"), ("photos", "Photos"), ("articles", "Articles")]
