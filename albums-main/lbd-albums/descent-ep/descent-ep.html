@@ -86,11 +86,11 @@
     <div class="web-player__now">Select a track to play</div>
     <audio controls preload="metadata"></audio>
     <ul class="tracklist">
-      <li><button type="button" class="track-btn" data-src="" data-title="01. Die Young (Remaster)">01. Die Young (Remaster)</button></li>
-      <li><button type="button" class="track-btn" data-src="" data-title="02. Lost Souls (Remaster)">02. Lost Souls (Remaster)</button></li>
-      <li><button type="button" class="track-btn" data-src="" data-title="03. Puppy Love (Remaster)">03. Puppy Love (Remaster)</button></li>
-      <li><button type="button" class="track-btn" data-src="" data-title="04. Decadence (Remaster)">04. Decadence (Remaster)</button></li>
-      <li><button type="button" class="track-btn" data-src="" data-title="05. War of Lies (Remaster)">05. War of Lies (Remaster)</button></li>
+      <li><button type="button" class="track-btn" data-src="https://archive.org/download/LBD-Descent-Remastered/01%20-%20Die%20Young%20%28Remastered%29.mp3" data-title="01. Die Young (Remaster)">01. Die Young (Remaster)</button></li>
+      <li><button type="button" class="track-btn" data-src="https://archive.org/download/LBD-Descent-Remastered/02%20-%20Lost%20Souls%20%28Remastered%29.mp3" data-title="02. Lost Souls (Remaster)">02. Lost Souls (Remaster)</button></li>
+      <li><button type="button" class="track-btn" data-src="https://archive.org/download/LBD-Descent-Remastered/03%20-%20Puppy%20Love%20%28Remastered%29.mp3" data-title="03. Puppy Love (Remaster)">03. Puppy Love (Remaster)</button></li>
+      <li><button type="button" class="track-btn" data-src="https://archive.org/download/LBD-Descent-Remastered/04%20-%20Decadence%20%28Remastered%29.mp3" data-title="04. Decadence (Remaster)">04. Decadence (Remaster)</button></li>
+      <li><button type="button" class="track-btn" data-src="https://archive.org/download/LBD-Descent-Remastered/05%20-%20War%20of%20Lies%20%28Remastered%29.mp3" data-title="05. War of Lies (Remaster)">05. War of Lies (Remaster)</button></li>
     </ul>
   </div>
 </main>
@@ -105,10 +105,7 @@
     function playTrack(btn, autoPlay = true) {
       const src = btn.getAttribute("data-src");
       const title = btn.getAttribute("data-title") || btn.textContent.trim();
-      if (!src) {
-        nowPlaying.textContent = "Stream URL not set yet: " + title;
-        return;
-      }
+      if (!src) return;
 
       buttons.forEach((b) => b.classList.remove("is-active"));
       btn.classList.add("is-active");
