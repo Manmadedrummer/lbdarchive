@@ -1,0 +1,114 @@
+/* ===== offline additions (the original ReverbNation CSS lives in the other files) ===== */
+.ng-hide{display:none!important}
+html,body{overflow-x:hidden}
+body{padding-bottom:0}
+body.rnp-on{padding-bottom:58px}
+.hide{display:none!important}
+[hidden]{display:none!important}
+.profile-header-nav-wrapper{width:100%!important}
+
+/* playing state for circle play buttons and the big player button */
+.button--play.rn-playing:before,.button--play-video.rn-playing:before{content:"\f04c"!important}
+.song-player__play-pause-button.icon-play.rn-playing:before{content:"\f04c"!important;padding-left:0!important}
+.slat.rn-cur .song-name,.slat.rn-cur .qa-music-tab-song-name-fullwidth,.slat.rn-cur .qa-song-name{color:#af6f3e;font-weight:500}
+.song-player__waveform{cursor:pointer}
+.song-player__waveform canvas{width:100%!important;height:100%!important;display:block}
+
+/* ===== docked player ===== */
+.rnp{position:fixed;left:0;right:0;bottom:0;height:56px;background:#000;color:#fff;z-index:200;font-family:Roboto,Arial,sans-serif}
+.rnp__in{max-width:980px;margin:0 auto;height:100%;display:flex;align-items:center;gap:16px;padding:0 14px}
+.rnp__ib{background:none;border:0;color:#fff;cursor:pointer;padding:6px 8px;font-size:15px;line-height:1;opacity:.85}
+.rnp__ib:hover{opacity:1}
+.rnp__vol{display:flex;align-items:center;gap:6px}
+.rnp__vol input{width:96px;accent-color:#fff;height:3px}
+.rnp__ctl{display:flex;align-items:center;gap:2px}
+.rnp__play{font-size:20px}
+.rnp__art{width:48px;height:36px;object-fit:cover;display:block}
+.rnp__mid{flex:1;min-width:0;text-align:center}
+.rnp__title{font-size:11px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rnp__artist{font-size:10px;color:#999;margin-bottom:3px}
+.rnp__bar{position:relative;height:4px;background:#444;border-radius:2px;cursor:pointer}
+.rnp__fill{position:absolute;left:0;top:0;bottom:0;width:0;background:#e5233a;border-radius:2px}
+.rnp__knob{position:absolute;top:-3px;left:0;width:10px;height:10px;margin-left:-5px;background:#fff;border-radius:50%}
+.rnp__time{font-size:10px;color:#ddd;width:34px;text-align:right}
+@media (max-width:700px){.rnp__vol input,.rnp__art{display:none}.rnp__in{gap:6px}}
+
+/* ===== modals / toast / menu ===== */
+.rn-modal{position:fixed;inset:0;background:rgba(0,0,0,.7);display:flex;align-items:center;justify-content:center;z-index:300;padding:18px}
+.rn-modal[hidden]{display:none}
+.rn-modal__box{background:#fff;color:#222;max-width:620px;width:100%;max-height:88vh;overflow:auto;padding:26px 30px;position:relative;font:400 14px/1.6 Roboto,Arial,sans-serif;box-shadow:0 8px 40px rgba(0,0,0,.5)}
+.rn-modal__box h3{margin:0 0 14px;font-size:20px;font-weight:300;color:#e8203a}
+.rn-modal__box pre{white-space:pre-wrap;font:inherit;margin:0}
+.rn-modal__x{position:absolute;right:10px;top:4px;border:0;background:none;font-size:26px;cursor:pointer;color:#777}
+.rn-share{display:flex;gap:8px;margin-top:6px}
+.rn-share input{flex:1;padding:8px 10px;border:1px solid #ccc;font:inherit}
+.rn-share button{border:0;background:#2f9de4;color:#fff;padding:8px 16px;font:500 13px Roboto,Arial,sans-serif;cursor:pointer}
+.rn-video{position:relative;padding-top:56.25%;background:#000}
+.rn-video iframe,.rn-video video{position:absolute;inset:0;width:100%;height:100%;border:0}
+.rn-video__fallback{margin-top:10px;font-size:13px;color:#555}
+.rn-toast{position:fixed;left:50%;bottom:78px;transform:translateX(-50%);background:rgba(0,0,0,.88);color:#fff;font:400 13px Roboto,Arial,sans-serif;padding:10px 18px;border-radius:3px;z-index:400}
+.rn-toast[hidden]{display:none}
+.rn-menu{position:absolute;background:#fff;border:1px solid #ddd;box-shadow:0 4px 14px rgba(0,0,0,.25);z-index:250;min-width:170px;font:400 13px Roboto,Arial,sans-serif}
+.rn-menu a{display:block;padding:9px 14px;color:#222;cursor:pointer;text-decoration:none}
+.rn-menu a:hover{background:#f3f3f3}
+
+/* ===== carousel + photo viewer ===== */
+.owl-carousel .owl-stage-outer{overflow:hidden}
+.owl-carousel .owl-stage{display:flex}
+.owl-carousel .owl-item{float:none;flex:none;cursor:pointer}
+.owl-carousel .owl-item img{width:100%;display:block}
+.owl-prev.disabled,.owl-next.disabled{opacity:.35;cursor:default}
+.owl-prev,.owl-next{cursor:pointer}
+img[data-missing]{background:#2a2a2a;min-width:34px;min-height:26px;display:inline-block}
+.rnpv{position:fixed;inset:0;background:rgba(0,0,0,.72);display:flex;align-items:center;justify-content:center;z-index:320;padding:24px 14px;overflow:auto}
+.rnpv[hidden]{display:none}
+.rnpv__box{position:relative;background:#fff;width:860px;max-width:100%;margin:auto;box-shadow:0 6px 30px rgba(0,0,0,.4);font-family:Roboto,Arial,sans-serif}
+.rnpv__x{position:absolute;right:-12px;top:-12px;width:26px;height:26px;border-radius:50%;background:#000;border:2px solid #fff;color:#fff;font:700 13px/1 Roboto,Arial,sans-serif;cursor:pointer;padding:0;display:grid;place-items:center;z-index:2}
+.rnpv__head{padding:24px 32px 18px;border-bottom:1px solid #dcdcdc}
+.rnpv__head h2{margin:0;font:300 31px/1.2 Roboto,Arial,sans-serif;color:#e8203a}
+.rnpv__body{padding:30px 47px 26px}
+.rnpv__stage{text-align:center}
+.rnpv__wrap{position:relative;display:inline-block;max-width:100%;vertical-align:top}
+.rnpv__wrap img{display:block;height:min(597px,calc(100vh - 300px));min-height:200px;width:auto;max-width:100%;object-fit:contain;background:#111;cursor:pointer}
+.rnpv__arr{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:80px;border:0;background:transparent;cursor:pointer;padding:0;display:grid;place-items:center}
+.rnpv__arr svg{width:20px;height:40px;stroke:#fff;stroke-width:1.4;fill:none;filter:drop-shadow(0 0 3px rgba(0,0,0,.6))}
+.rnpv__arr.l{left:6px}.rnpv__arr.r{right:6px}
+.rnpv__grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
+.rnpv__grid[hidden],.rnpv__stage[hidden]{display:none}
+.rnpv__grid a{display:block;background:#111;cursor:pointer}
+.rnpv__grid img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover}
+.rnpv__foot{display:flex;justify-content:space-between;margin-top:22px;font-size:18px}
+.rnpv__foot a{color:#2f9de4;cursor:pointer}
+@media (max-width:560px){.rnpv__body{padding:18px 14px}.rnpv__head h2{font-size:24px}.rnpv__foot{font-size:15px}}
+
+/* video thumbnails that aren't available offline */
+.card__img{position:relative}
+.card__img.no-thumb{background:radial-gradient(ellipse at center,#e6e6e6 30%,#bcbcbc 100%);min-height:120px;aspect-ratio:16/9;overflow:hidden}
+.card__img.no-thumb:before{content:"";position:absolute;left:50%;top:50%;width:26%;aspect-ratio:1.45;transform:translate(-50%,-50%);background:#7d7d7d;border-radius:18%}
+.card__img.no-thumb:after{content:"\f04b";font-family:FontAwesome;color:#fff;position:absolute;left:50%;top:50%;transform:translate(-40%,-50%);font-size:22px}
+.qa-video-module .card--video .card__img{min-height:120px}
+.community-module img[data-missing]{width:36px;height:27px;vertical-align:top}
+
+/* carousel arrows (the original arrow images weren't in the download) */
+.owl-prev,.owl-next{background-repeat:no-repeat!important;background-position:center!important;background-size:14px 26px!important}
+.owl-prev{background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 26'><path d='M12 1L2 13l10 12' fill='none' stroke='%23999' stroke-width='1.3'/></svg>")!important}
+.owl-next{background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 26'><path d='M2 1l10 12L2 25' fill='none' stroke='%23999' stroke-width='1.3'/></svg>")!important}
+
+/* player-bar icons (outside the original .zurbify scope, so defined here) */
+.rnp i.icon-fa{display:inline-block;font-style:normal;font-weight:normal;line-height:1;width:1em;text-align:center}
+.rnp i.icon-fa:before{font-family:FontAwesome!important;display:inline-block}
+.rnp .icon-play:before{content:"\f04b"}
+.rnp .icon-pause:before{content:"\f04c"}
+.rnp .icon-step-backward:before{content:"\f048"}
+.rnp .icon-step-forward:before{content:"\f051"}
+.rnp .icon-volume-up:before{content:"\f028"}
+.rnp .icon-volume-off:before{content:"\f026"}
+.rnp .icon-bars:before{content:"\f0c9"}
+
+/* links that pointed at ReverbNation are kept for layout but disabled */
+a.rn-off,a.rn-off:hover{cursor:default}
+
+/* video popup (same frame as the photo viewer) */
+.rnpv__video{position:relative;aspect-ratio:16/9;background:#000}
+.rnpv__video iframe,.rnpv__video video{position:absolute;inset:0;width:100%;height:100%;border:0}
+.rnpv__head h2{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}

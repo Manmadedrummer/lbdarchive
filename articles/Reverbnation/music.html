@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+
+<html class="no-touch" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Lethal By Default Songs | ReverbNation</title>
+<link href="assets/css/roboto.css" rel="stylesheet"/>
+<link href="assets/css/main.css" rel="stylesheet"/>
+<link href="assets/css/v4_required-datauri.css" rel="stylesheet"/>
+<link href="assets/css/zurb_foundation-datauri.css" rel="stylesheet"/>
+<link href="assets/css/v4_foundation-datauri.css" rel="stylesheet"/>
+<link href="assets/css/signup.css" rel="stylesheet"/>
+<link href="assets/css/header.css" rel="stylesheet"/>
+<link href="assets/css/artist_profile.css" rel="stylesheet"/>
+<link href="assets/css/spotlight.css" rel="stylesheet"/>
+<link href="assets/css/owl.carousel.css" rel="stylesheet"/>
+<link href="assets/css/common.css" rel="stylesheet"/>
+<link href="assets/css/v4_to_v3-datauri.css" rel="stylesheet"/>
+<link href="assets/css/song_page.css" rel="stylesheet"/>
+<link href="assets/css/offline.css" rel="stylesheet"/>
+</head>
+<body class="gecko redaptive zurb redaptive-page" id="musicpimp">
+<div class="sullivan zurbify canvas no-touch rgba backgroundsize borderradius boxshadow opacity cssanimations cssgradients csstransforms csstransforms3d fontface svg placeholder svgfilters pointerevents cssfilters mediaqueries bgsizecover no-stock_android_browser ng-scope closed" id="foundation_page_header" ng-class="{'open': drawer != 'closed', 'closed': drawer == 'closed'}" ng-controller="HeaderCtrl" rn-ios-fixed-fix="" rn-modernizr="opacity, stock_android_browser, csstransforms, csstransforms3d, cssanimations">
+<div class="ng-isolate-scope" history-manager="" id="history-manager"><div class="ng-isolate-scope history_event_handler" data-event-listener="reverb:history:navigate_to, reverb:history:replace_state, reverb:history:restore_scroll_position"></div><div class="history_event_handler" id="history_handler_877629"></div></div>
+<div class="ng-isolate-scope menu_event_handler" event-listener="reverb:menu:update"></div>
+<div class="contain-to-grid">
+<div class="ng-scope" style=""><nav class="menu-bar qa-header ng-scope">
+<section>
+<div class="left">
+<ul class="inline-list m0 clearfix">
+<li class="ng-scope ng-isolate-scope menu-item logo-tab" id="desktop_header_logo_menu_li" rn-logged-in="reverbUser.id_unique() ? true : false" rn-menu-item="menu_item"><a bind-html-compile="menuItem.display || menuItem.title" class="ng-scope qa-logo logo-link rn-off" href="index.html" id="menu-item-logo"><div class="svg-wrapper ng-scope" rn-logo=""><svg class="logo ng-scope" height="30" width="150">
+<image height="30" src="img/reverbnation_logo_color_dark.svg" width="150" xlink:href="img/reverbnation_logo_color_dark.svg"/>
+</svg>
+</div></a>
+</li><li class="ng-scope ng-isolate-scope menu-item search-tab distraction--new distraction--minimal" id="desktop_header_search_menu_li" rn-logged-in="reverbUser.id_unique() ? true : false" rn-menu-item="menu_item">
+<span bind-html-compile="menuItem.display || menuItem.title" class="ng-scope qa-search search-link"><div class="ng-scope ng-isolate-scope" hide-on-blur="true" rn-search-box=""><div class="ng-scope">
+<form class="ng-pristine ng-valid ng-isolate-scope" show-spinner="searching" spinner-options='{"top": "18px", "left": "90%"}'>
+<span class="search-icon icon-fa icon-search"></span>
+<input autocomplete="off" class="qa-quicksearch-input ng-pristine ng-untouched ng-valid ng-empty" name="q" placeholder="Search ReverbNation" type="text"/>
+</form>
+</div></div></span></li><li class="ng-scope ng-isolate-scope menu-item features-tab distraction--new distraction--minimal" id="desktop_header_features_menu_li" rn-logged-in="reverbUser.id_unique() ? true : false" rn-menu-item="menu_item"><a bind-html-compile="menuItem.display || menuItem.title" class="ng-scope qa-features features-link rn-off" id="menu-item-features"><span class="selectable ng-scope" style="display: inline-block">Features</span></a>
+</li><li class="ng-scope ng-isolate-scope menu-item discover-tab distraction--new distraction--minimal" id="desktop_header_discover_menu_li" rn-logged-in="reverbUser.id_unique() ? true : false" rn-menu-item="menu_item"><a bind-html-compile="menuItem.display || menuItem.title" class="ng-scope qa-discover discover-link rn-off" id="menu-item-discover"><span class="selectable ng-scope" style="display: inline-block">Discover</span></a>
+</li><li class="ng-scope ng-isolate-scope menu-item featured_artists-tab distraction--new distraction--minimal" id="desktop_header_featured_artists_menu_li" rn-logged-in="reverbUser.id_unique() ? true : false" rn-menu-item="menu_item"><a bind-html-compile="menuItem.display || menuItem.title" class="ng-scope qa-featured_artists featured_artists-link rn-off" id="menu-item-featured_artists"><span class="selectable ng-scope" style="display: inline-block">Crowd Picks</span></a>
+</li><li class="ng-scope ng-isolate-scope menu-item charts-tab distraction--new distraction--minimal" id="desktop_header_charts_menu_li" rn-logged-in="reverbUser.id_unique() ? true : false" rn-menu-item="menu_item"><a bind-html-compile="menuItem.display || menuItem.title" class="ng-scope qa-charts charts-link rn-off" id="menu-item-charts"><span class="selectable ng-scope" style="display: inline-block">Charts</span></a>
+</li><li class="ng-scope ng-isolate-scope menu-item opportunities-tab distraction--new distraction--minimal" id="desktop_header_opportunities_menu_li" rn-logged-in="reverbUser.id_unique() ? true : false" rn-menu-item="menu_item"><a bind-html-compile="menuItem.display || menuItem.title" class="ng-scope qa-opportunities opportunities-link rn-off" id="menu-item-opportunities"><span class="selectable ng-scope" style="display: inline-block">Opportunities</span></a>
+</li><li class="ng-scope ng-isolate-scope menu-item distribution-tab distraction--new distraction--minimal" id="desktop_header_distribution_menu_li" rn-logged-in="reverbUser.id_unique() ? true : false" rn-menu-item="menu_item"><a bind-html-compile="menuItem.display || menuItem.title" class="ng-scope qa-distribution distribution-link rn-off" id="menu-item-distribution"><span class="selectable ng-scope" style="display: inline-block">Distribution</span></a>
+</li><li class="ng-scope ng-isolate-scope menu-item pricing-tab distraction--new distraction--minimal" id="desktop_header_pricing_menu_li" rn-logged-in="reverbUser.id_unique() ? true : false" rn-menu-item="menu_item"><a bind-html-compile="menuItem.display || menuItem.title" class="ng-scope qa-pricing pricing-link rn-off" id="menu-item-pricing"><span class="selectable ng-scope" style="display: inline-block">Pricing</span></a>
+</li>
+</ul>
+</div>
+<div class="right mr2 distraction--new">
+<ul class="inline-list m0 clearfix ng-scope">
+<li>
+<a class="qa-login" data-display="modal" data-url="/user/login_modal" rel="nofollow">Log In</a>
+</li>
+<li class="m0">
+<div class="ng-scope">
+<a class="qa-signup distraction--always button button--primary m0 rn-off" id="signup_button">Join For Free</a>
+</div>
+</li>
+</ul>
+</div>
+<div class="right">
+</div>
+</section>
+</nav>
+</div>
+</div>
+</div>
+<div class="zurbify" id="page_contents">
+<div class="zurbify canvas no-touch rgba backgroundsize borderradius boxshadow opacity cssanimations cssgradients csstransforms csstransforms3d fontface svg placeholder svgfilters pointerevents cssfilters mediaqueries bgsizecover no-stock_android_browser" id="page_contents">
+<div class="new-profile">
+<div class="artist_profile_content profile-wrap profile-wrap--fan-view ng-scope" id="artistProfile">
+<div class="ng-scope"><style class="ng-binding ng-scope" type="text/css">
+
+  .zurbify .new-profile .artist-profile {}
+
+  .zurbify .new-profile .artist-profile a.button.button--vibrant-color-primary {
+    color: #b97c4e;
+    border-color: #b97c4e;
+  }
+
+  .zurbify .new-profile .artist-profile a.button--vibrant-color-primary:hover {
+    color: white !important;
+    background: #b97c4e !important;
+  }
+
+
+  .zurbify .new-profile .profile-sidebar-wrapper,
+  .zurbify .new-profile .profile-header__info__rank,
+  .zurbify .new-profile .profile-about-modal{
+    background: #25211f;
+  }
+
+  .zurbify .new-profile .profile-header-nav .tabs ul li.active a {
+    color: #af6f3e;
+  }
+
+  .zurbify .new-profile .profile-header-nav .tabs ul li.active a:after {
+    background:#af6f3e;
+  }
+
+  .zurbify .new-profile .profile-header-nav .tabs ul li a:hover, .zurbify .new-profile .profile-header-nav .tabs ul li.active a:hover {
+    color: #a2673a;
+  }
+
+ .zurbify .new-profile .artist-profile .shows-list .button--actions {
+    border-color: #a2673a;
+  }
+
+  .zurbify .new-profile .artist-profile .music-module .song-player .song-player__play-pause-button  {
+    color: white;
+    background: #b97c4e;
+  }
+
+  .zurbify .new-profile .artist-profile .music-module .song-player .song-player__play-pause-button:hover {
+    color: white;
+    background: #af7345;
+  }
+
+  .zurbify .new-profile .artist-profile .music-module .music-top-controls a,
+  .zurbify .new-profile .artist-profile .music-module .music-top-controls span {
+    color: #b97c4e;
+  }
+
+  .zurbify .new-profile .artist-profile .music-module .music-top-controls a:hover,
+  .zurbify .new-profile .artist-profile .music-module .music-top-controls a:focus {
+    color: #a2673a;
+  }
+
+  .zurbify .new-profile .artist-profile .song-list .slat:hover .button--play,
+  .zurbify .new-profile .artist-profile .song-list .slat:hover .button--download {
+    background: white;
+  }
+
+  .zurbify .new-profile .artist-profile .song-list .button--play:before,
+  .zurbify .new-profile .artist-profile .song-list .button--pause:before,
+  .zurbify .new-profile .artist-profile .song-list .button--download:before,
+  .zurbify .new-profile .artist-profile .song-list .button--actions:before,
+  .zurbify .new-profile .artist-profile .song-list .icon-download:before,
+  .zurbify .new-profile .artist-profile .song-list .icon-plus:before {
+    color: #b97c4e;
+  }
+
+  .zurbify .new-profile .artist-profile .song-list .button--play:hover:before,
+  .zurbify .new-profile .artist-profile .song-list .button--pause:hover:before,
+  .zurbify .new-profile .artist-profile .song-list .button--download:hover:before,
+  .zurbify .new-profile .artist-profile .song-list .button--actions:hover:before,
+  .zurbify .new-profile .artist-profile .song-list .icon-plus:hover:before {
+    color: #a2673a;
+  }
+
+  .zurbify .new-profile .artist-profile .song-list .icon-check:before {
+    color: #b97c4e;
+  }
+
+  .zurbify .new-profile .artist-profile .show-module .slat .button--actions:before {
+    color: #b97c4e;
+  }
+
+  .zurbify .new-profile .artist-profile .button--actions:hover:before {
+    color: #a2673a;
+  }
+
+  .zurbify .new-profile .artist-profile .song-list .exploded-actions .icon-pencil-square-o:before,
+  .zurbify .new-profile .artist-profile .song-list .exploded-actions .icon-download:before,
+  .zurbify .new-profile .artist-profile .song-list .exploded-actions .icon-share:before,
+  .zurbify .new-profile .artist-profile .song-list .exploded-actions .icon-plus:before {
+    color: #b97c4e;
+  }
+
+  .zurbify .new-profile .artist-profile .song-list .exploded-actions .icon-pencil-square-o:hover:before,
+  .zurbify .new-profile .artist-profile .song-list .exploded-actions .icon-download:hover:before,
+  .zurbify .new-profile .artist-profile .song-list .exploded-actions .icon-share:hover:before,
+  .zurbify .new-profile .artist-profile .song-list .exploded-actions .icon-plus:hover:before {
+    color: #a2673a;
+  }
+
+  .zurbify .new-profile .artist-profile .albums .song-player__play-pause-button {
+    color: white;
+    background: #b97c4e;
+    border: none;
+  }
+
+  .zurbify .new-profile .artist-profile .albums .song-player__play-pause-button:hover {
+    color: white;
+    background: #af7345;
+    border: none;
+  }
+
+  .zurbify .new-profile .artist-profile .albums .button--actions:before {
+    color: #b97c4e;
+  }
+
+  .zurbify .new-profile .artist-profile .albums .album-navigation .active {
+    color: #b97c4e;
+  }
+
+  .zurbify .new-profile .artist-profile .albums .album-navigation a:hover {
+    color: #b97c4e;
+  }
+
+  .zurbify .new-profile .artist-profile .albums .card i, .zurbify .new-profile .artist-profile .albums .card a:before {
+    color: #b97c4e;
+  }
+
+  .zurbify .new-profile .profile-module__inner a.text-black:hover {
+    color: #b97c4e;
+  }
+
+</style>
+</div>
+<div class="profile-header-wrap profile-header-wrap--with-cover profile-header-wrap--default-visible" id="page_object_profile_header">
+<div class="profile-header-wrap__cover profile-header-wrap__switch ng-scope" data-toggle="">
+<div class="wrap hover-or-touch--block profile-header profile-header__fullWidth js-profile-user-header ng-scope">
+<div class="artist-profile-head-wrapper max-profile-width of-h">
+<div class="qa-profile-cover-photo js-cover-photo profile-header__cover-photo profile-header__cover-photo-background card card--shadowed ng-scope" data-cover-photo-present-classes="card--overlay-large" data-image-url-for-medium="data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" data-viewport-background-image="" id="artist_profile_cover_photo" style='background-color: rgb(37, 33, 31); background-image: url("data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==");'>
+<div class="cover_photo_event_handler" id="cover_photo_handler_373459"></div><div class="cover_photo_event_handler" id="cover_photo_handler_582421"></div><div class="artist_profile_event_handler" id="artist_profile_handler_611303"></div></div>
+</div>
+</div>
+<div class="js-profile-info">
+<div class="profile-header__content-wrapper max-profile-width">
+<div class="js-profile-header-profile-info">
+<div>
+<div class="profile-header__info ng-scope">
+<artist-profile-photo class="show-for-small-only" profile-photo-class="profile-header-nav__photo"><div class="profile-header-nav__photo">
+<a class="ng-scope" rel="nofollow">
+<img alt="Lethal By Default" data-id="" data-profile-photo="small" height="186" itemprop="image" src="img/orig/2-19-111_1299724259.jpg" title="Lethal By Default" width="248"/>
+</a>
+</div>
+</artist-profile-photo>
+<div class="profile-header__info__title-wrapper hide-for-small-only ng-scope">
+<h1 class="profile-header__info__title qa-artist-name inline mr2 ng-isolate-scope" data-navigation-scroll-to="" data-scroll-offset="50">
+      Lethal By Default
+    <div class="artist_profile_event_handler" id="artist_profile_handler_767109"></div></h1>
+<div class="profile-header__info__actions inline">
+<share-button type="header"><button class="ng-scope button button--glass--solid button--glass--solid--black button--rounded inverted middle shadowed text-shadow" data-display="modal" data-modal="current" data-rn="share" data-share="/page_object/share_page_object/artist_1099191" data-url="/page_object/share_page_object/artist_1099191" href="javascript:;" rel="nofollow">
+<i class="icon-fa icon-share"></i>
+  Share
+</button>
+</share-button>
+<a class="button button--add--profile button--glass--solid button--glass--solid--black inverted middle ml1 shadowed text-shadow rn-off" data-fan-action="add" data-fan-url="/artist/become_fan/1099191?without_modal=true" data-page-object-id="artist_1099191"> Become a Fan</a>
+<a class="button button--added--profile button--glass--solid button--glass--solid--black button--added--remove-on-hover inverted middle ml1 shadowed text-shadow hide rn-off" data-fan-action="remove" data-fan-url="/artist/became_fan_save/artist_1099191?become_a_fan=0&amp;modal=manage_fan_settings&amp;receive_emails=0&amp;without_modal=true" data-page-object-id="artist_1099191"> Remove Fan</a>
+<div data-dropdown="ph_artist_1099191"></div>
+</div>
+<div class="ng-scope">
+<span class="profile-header__info__genre left">Metal</span>
+<span class="profile-header__info__location left">
+        Galesburg, IL
+        <span class="ng-scope">
+           
+          <img alt="US" class="profile-header__info__flag" src="img/orig/US.png"/>
+</span>
+</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="js-sticky-nav-wrapper sticky-navigation-module">
+<div class="sticky-wrapper" style=""><div class="sticky-wrapper" style=""><div class="profile-header-nav-wrapper js-nav-module zindex100">
+<div class="profile-header-nav">
+<artist-profile-photo class="hide-for-small-only" profile-photo-class="profile-header-nav__photo mb2"><div class="profile-header-nav__photo mb2">
+<a class="ng-scope" rel="nofollow">
+<img alt="Lethal By Default" data-id="" data-profile-photo="small" height="186" itemprop="image" src="img/orig/2-19-111_1299724259.jpg" title="Lethal By Default" width="248"/>
+</a>
+</div>
+</artist-profile-photo>
+<div class="profile-header-nav__sticky-info">
+<div class="profile-header-nav__small-title h4-size">
+<span class="ng-binding">Lethal By Default</span>
+<div class="profile-header-nav__small-title__actions">
+<share-button type="small-button"><a class="ng-scope button--share small middle" data-display="modal" data-modal="current" data-rn="share" data-share="/page_object/share_page_object/artist_1099191" data-url="/page_object/share_page_object/artist_1099191" rel="nofollow">
+</a>
+</share-button>
+</div>
+</div>
+</div>
+<div class="profile-header-nav__tabs">
+<nav class="tabs tabs--header tabs--compact-for-small-only tabs-centered-for-small-only clearfix tour-profile-tabs">
+<ul>
+<li class="tab-title ng-scope">
+<a class="ng-binding" href="index.html">Overview</a>
+</li><li class="tab-title ng-scope active">
+<a class="ng-binding" href="music.html">Music</a>
+</li><li class="tab-title ng-scope">
+<a class="ng-binding" href="videos.html">Videos</a>
+</li><li class="tab-title ng-scope">
+<a class="ng-binding" href="events.html">Events</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div></div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="artist_profile_container full-width-grid max-profile-width">
+<div class="ng-scope">
+<div class="navigation-main-content ng-scope">
+<div class="content-body">
+<div>
+<div class="ng-scope">
+<div class="ng-scope"><div class="artist-profile profile-music music ng-scope">
+<div class="profile-content qa_profile_tab_content">
+<div class="profile-module profile-module--tabbed relative ng-scope">
+<div class="row">
+<div class="small-12 columns">
+<div class="featured_song ng-scope"><div class="ng-scope">
+<div class="ng-scope">
+<div class="row profile-module__inner">
+<div class="small-12 columns">
+<div class="row">
+<div class="small-12 medium-12 large-5 columns">
+<div class="h3-size">
+        Featured Song
+      </div>
+</div>
+<div class="small-12 medium-12 large-7 columns text-right-for-large-up py1 py0-for-large-up">
+<div class="ng-scope">
+<a class="mb0 button button--small button--glass button--vibrant-color-primary" data-display="modal" data-modal="current" data-rn="share" data-share="/page_object/share_song/12047519?onshare=record_lp_shares" data-url="/page_object/share_song/12047519?onshare=record_lp_shares" rel="nofollow">
+          Share Song
+        </a>
+</div>
+</div>
+</div>
+<div class="inline row">
+<div class="small-12 columns">
+<div class="text-alt ellipsis ng-binding">Man In The Moon</div>
+</div>
+</div>
+<div class="row music-module">
+<div class="song-player">
+<span class="song-player__position text-light ng-binding">0:00</span>
+<span class="song-player__position__divider text-light">/</span>
+<span class="song-player__duration text-light ng-binding">4:03</span>
+<a class="song-player__play-pause-button icon-fa icon-play buffering" data-delayed-add-class-if="!waveform.isBuffering()" data-delayed-add-class-if-class="animation-complete" data-delayed-add-class-if-delay="150"></a>
+<div class="song-player__waveform ng-isolate-scope" data-player-scrubber="" data-player-scrubber-play-function="waveform.playOrPause()" data-player-scrubber-trigger-seek-start-on-first-event="false" data-player-synchronizer="::waveform.playerSynchronizer" data-resize="">
+<div class="song-player__waveform__base ng-scope ng-isolate-scope" data-waveform="waveform.waveform" data-waveform-colors="waveform.colors" data-waveform-song-id="waveform.songId" data-waveform-synchronizer="::waveform.playerSynchronizer"><canvas height="85" width="1309"></canvas></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></div>
+<div class="spinner-push spinner ng-isolate-scope" show-spinner="music.songs === undefined || music.albums === undefined" spinner-options='{"lines": "13"}'></div>
+<div class="ng-scope"><div class="row profile-module__inner ng-scope">
+<div class="small-12 columns">
+<div class="qa_profile_tab_title pb2 h3-size">
+      Songs
+    </div>
+<div class="song-list my2 qa-music-tab-song-list bdt1">
+<div class="slats slats--with-hover slats--with-darker-hover slats--hover-buttons">
+<div class="slat bordered bordered--inner-only p0 clickable qa-music-tab-song-row ng-scope ng-isolate-scope" data-song-details-card="song" data-song-details-card-mixpanel-event-source="artistMusic" data-song-details-card-queue-type="tracks" data-song-show-like-button="false"><div class="row full-width p1 ng-scope" data-song-action="play" data-song-action-setup="song" data-song-id="12047519" data-song-options='{
+  "clear_queue": true,
+  "queue_songs": "11631295,11631264,11631240"
+}' style="display: block;">
+<div class="exploded-actions ng-scope">
+<div class="ng-scope"><div class="columns ng-scope small-5">
+<div class="centerer--y">
+<a class="small circle button--play hover-button-for-large-up centerer--y ng-scope" data-song-action="play" data-song-id="12047519" data-song-options='{
+  "clear_queue": true,
+  "queue_songs": "11631295,11631264,11631240"
+}' title="Man In The Moon"></a>
+</div>
+<div class="ml2 centerer--y show-for-large-up song-row-icon-shim ng-scope">
+<a class="text-default ml2" data-library-action="add" data-library-item-id="Song_12047519" rel="nofollow">
+<i class="icon-fa icon-plus"></i>
+</a>
+<a class="text-default ml2 ng-hide" data-library-action="remove" data-library-item-id="Song_12047519" rel="nofollow">
+<i class="icon-fa icon-check button--added--remove-on-hover"></i>
+</a>
+</div>
+<div class="ml4-for-medium-only ml8-for-large-up pl4-for-small-only lhr2 ellipsis qa-music-tab-song-name-fullwidth ng-binding">Man In The Moon</div>
+</div>
+<div class="columns ng-scope small-7">
+<div class="row">
+<div class="small-5 columns ng-scope">
+<div class="row">
+<div class="small-5 columns">
+</div>
+<div class="small-2 columns">
+<div class="left lhr2 text-light ng-binding">
+            4:03
+          </div>
+</div>
+</div>
+</div>
+<div class="columns small-7">
+<div class="row">
+<div class="small-12 columns lhr2 show-for-medium-up">
+<div class="pos-ar mr10">
+</div>
+<div class="pos-ar mr9 show-for-large-up">
+</div>
+<div class="pos-ar mr4">
+<a class="text-default mr3 qa-fullwidth-share" data-display="modal" data-modal="current" data-rn="share" data-share="/page_object/share_song/12047519?onshare=record_lp_shares" data-url="/page_object/share_song/12047519?onshare=record_lp_shares" rel="nofollow">
+<i class="icon-fa icon-share"></i>
+</a>
+</div>
+<div class="pos-ar mr2">
+<a class="button--actions button--actions--outline small small-no-shadow dropdown qa-music-tab-song-dropdown-fullwidth" data-dropdown="dropdown_3fbbbcfd-92d3-4eec-ae58-f68eb51a92bc"></a>
+</div>
+</div>
+<div class="pos-ar mr2 lhr2">
+<a class="button--actions button--actions--outline small small-no-shadow dropdown show-for-small-only" data-dropdown="dropdown_3fbbbcfd-92d3-4eec-ae58-f68eb51a92bc"></a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="slat bordered bordered--inner-only p0 clickable qa-music-tab-song-row ng-scope ng-isolate-scope" data-song-details-card="song" data-song-details-card-mixpanel-event-source="artistMusic" data-song-details-card-queue-type="tracks" data-song-show-like-button="false"><div class="row full-width p1 ng-scope" data-song-action="play" data-song-action-setup="song" data-song-id="11631295" data-song-options='{
+  "clear_queue": true,
+  "queue_songs": "11631264,11631240,12047519"
+}' style="display: block;">
+<div class="exploded-actions ng-scope">
+<div class="ng-scope"><div class="columns ng-scope small-5">
+<div class="centerer--y">
+<a class="small circle button--play hover-button-for-large-up centerer--y ng-scope" data-song-action="play" data-song-id="11631295" data-song-options='{
+  "clear_queue": true,
+  "queue_songs": "11631264,11631240,12047519"
+}' title="The Homeless Must Go"></a>
+</div>
+<div class="ml2 centerer--y show-for-large-up song-row-icon-shim ng-scope">
+<a class="text-default ml2" data-library-action="add" data-library-item-id="Song_11631295" rel="nofollow">
+<i class="icon-fa icon-plus"></i>
+</a>
+<a class="text-default ml2 ng-hide" data-library-action="remove" data-library-item-id="Song_11631295" rel="nofollow">
+<i class="icon-fa icon-check button--added--remove-on-hover"></i>
+</a>
+</div>
+<div class="ml4-for-medium-only ml8-for-large-up pl4-for-small-only lhr2 ellipsis qa-music-tab-song-name-fullwidth ng-binding">The Homeless Must Go</div>
+</div>
+<div class="columns ng-scope small-7">
+<div class="row">
+<div class="small-5 columns ng-scope">
+<div class="row">
+<div class="small-5 columns">
+</div>
+<div class="small-2 columns">
+<div class="left lhr2 text-light ng-binding">
+            3:48
+          </div>
+</div>
+</div>
+</div>
+<div class="columns small-7">
+<div class="row">
+<div class="small-12 columns lhr2 show-for-medium-up">
+<div class="pos-ar mr10">
+</div>
+<div class="pos-ar mr9 show-for-large-up">
+</div>
+<div class="pos-ar mr4">
+<a class="text-default mr3 qa-fullwidth-share" data-display="modal" data-modal="current" data-rn="share" data-share="/page_object/share_song/11631295?onshare=record_lp_shares" data-url="/page_object/share_song/11631295?onshare=record_lp_shares" rel="nofollow">
+<i class="icon-fa icon-share"></i>
+</a>
+</div>
+<div class="pos-ar mr2">
+<a class="button--actions button--actions--outline small small-no-shadow dropdown qa-music-tab-song-dropdown-fullwidth" data-dropdown="dropdown_456befb4-6fec-4d14-b402-c302f181d2c5"></a>
+</div>
+</div>
+<div class="pos-ar mr2 lhr2">
+<a class="button--actions button--actions--outline small small-no-shadow dropdown show-for-small-only" data-dropdown="dropdown_456befb4-6fec-4d14-b402-c302f181d2c5"></a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="slat bordered bordered--inner-only p0 clickable qa-music-tab-song-row ng-scope ng-isolate-scope" data-song-details-card="song" data-song-details-card-mixpanel-event-source="artistMusic" data-song-details-card-queue-type="tracks" data-song-show-like-button="false"><div class="row full-width p1 ng-scope" data-song-action="play" data-song-action-setup="song" data-song-id="11631264" data-song-options='{
+  "clear_queue": true,
+  "queue_songs": "11631240,12047519,11631295"
+}' style="display: block;">
+<div class="exploded-actions ng-scope">
+<div class="ng-scope"><div class="columns ng-scope small-5">
+<div class="centerer--y">
+<a class="small circle button--play hover-button-for-large-up centerer--y ng-scope" data-song-action="play" data-song-id="11631264" data-song-options='{
+  "clear_queue": true,
+  "queue_songs": "11631240,12047519,11631295"
+}' title="Who Am I?"></a>
+</div>
+<div class="ml2 centerer--y show-for-large-up song-row-icon-shim ng-scope">
+<a class="text-default ml2" data-library-action="add" data-library-item-id="Song_11631264" rel="nofollow">
+<i class="icon-fa icon-plus"></i>
+</a>
+<a class="text-default ml2 ng-hide" data-library-action="remove" data-library-item-id="Song_11631264" rel="nofollow">
+<i class="icon-fa icon-check button--added--remove-on-hover"></i>
+</a>
+</div>
+<div class="ml4-for-medium-only ml8-for-large-up pl4-for-small-only lhr2 ellipsis qa-music-tab-song-name-fullwidth ng-binding">Who Am I?</div>
+</div>
+<div class="columns ng-scope small-7">
+<div class="row">
+<div class="small-5 columns ng-scope">
+<div class="row">
+<div class="small-5 columns">
+</div>
+<div class="small-2 columns">
+<div class="left lhr2 text-light ng-binding">
+            5:14
+          </div>
+</div>
+</div>
+</div>
+<div class="columns small-7">
+<div class="row">
+<div class="small-12 columns lhr2 show-for-medium-up">
+<div class="pos-ar mr10">
+</div>
+<div class="pos-ar mr9 show-for-large-up">
+</div>
+<div class="pos-ar mr4">
+<a class="text-default mr3 qa-fullwidth-share" data-display="modal" data-modal="current" data-rn="share" data-share="/page_object/share_song/11631264?onshare=record_lp_shares" data-url="/page_object/share_song/11631264?onshare=record_lp_shares" rel="nofollow">
+<i class="icon-fa icon-share"></i>
+</a>
+</div>
+<div class="pos-ar mr2">
+<a class="button--actions button--actions--outline small small-no-shadow dropdown qa-music-tab-song-dropdown-fullwidth" data-dropdown="dropdown_b86b51fc-9e25-476d-b46a-962d127dddee"></a>
+</div>
+</div>
+<div class="pos-ar mr2 lhr2">
+<a class="button--actions button--actions--outline small small-no-shadow dropdown show-for-small-only" data-dropdown="dropdown_b86b51fc-9e25-476d-b46a-962d127dddee"></a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="slat bordered bordered--inner-only p0 clickable qa-music-tab-song-row ng-scope ng-isolate-scope" data-song-details-card="song" data-song-details-card-mixpanel-event-source="artistMusic" data-song-details-card-queue-type="tracks" data-song-show-like-button="false"><div class="row full-width p1 ng-scope" data-song-action="play" data-song-action-setup="song" data-song-id="11631240" data-song-options='{
+  "clear_queue": true,
+  "queue_songs": "12047519,11631295,11631264"
+}' style="display: block;">
+<div class="exploded-actions ng-scope">
+<div class="ng-scope"><div class="columns ng-scope small-5">
+<div class="centerer--y">
+<a class="small circle button--play hover-button-for-large-up centerer--y ng-scope" data-song-action="play" data-song-id="11631240" data-song-options='{
+  "clear_queue": true,
+  "queue_songs": "12047519,11631295,11631264"
+}' title="Man In The Moon"></a>
+</div>
+<div class="ml2 centerer--y show-for-large-up song-row-icon-shim ng-scope">
+<a class="text-default ml2" data-library-action="add" data-library-item-id="Song_11631240" rel="nofollow">
+<i class="icon-fa icon-plus"></i>
+</a>
+<a class="text-default ml2 ng-hide" data-library-action="remove" data-library-item-id="Song_11631240" rel="nofollow">
+<i class="icon-fa icon-check button--added--remove-on-hover"></i>
+</a>
+</div>
+<div class="ml4-for-medium-only ml8-for-large-up pl4-for-small-only lhr2 ellipsis qa-music-tab-song-name-fullwidth ng-binding">Man In The Moon</div>
+</div>
+<div class="columns ng-scope small-7">
+<div class="row">
+<div class="small-5 columns ng-scope">
+<div class="row">
+<div class="small-5 columns">
+</div>
+<div class="small-2 columns">
+<div class="left lhr2 text-light ng-binding">
+            4:03
+          </div>
+</div>
+</div>
+</div>
+<div class="columns small-7">
+<div class="row">
+<div class="small-12 columns lhr2 show-for-medium-up">
+<div class="pos-ar mr10">
+</div>
+<div class="pos-ar mr9 show-for-large-up">
+</div>
+<div class="pos-ar mr4">
+<a class="text-default mr3 qa-fullwidth-share" data-display="modal" data-modal="current" data-rn="share" data-share="/page_object/share_song/11631240?onshare=record_lp_shares" data-url="/page_object/share_song/11631240?onshare=record_lp_shares" rel="nofollow">
+<i class="icon-fa icon-share"></i>
+</a>
+</div>
+<div class="pos-ar mr2">
+<a class="button--actions button--actions--outline small small-no-shadow dropdown qa-music-tab-song-dropdown-fullwidth" data-dropdown="dropdown_a02aad67-17d0-4f00-a45d-6148861ae03c"></a>
+</div>
+</div>
+<div class="pos-ar mr2 lhr2">
+<a class="button--actions button--actions--outline small small-no-shadow dropdown show-for-small-only" data-dropdown="dropdown_a02aad67-17d0-4f00-a45d-6148861ae03c"></a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="profile-sidebar-wrapper">
+<div class="profile-sidebar">
+<div class="row">
+<div class="small-12 columns">
+<div class="profile-sidebar__inner">
+<div class="ng-scope" data-if-layout-enabled="bio"><div class="qa-bio-module ng-scope">
+<div class="profile-sidebar-module profile-sidebar-module--no-border ng-scope">
+<h4>About the Artist</h4>
+<admin-buttons class="ng-isolate-scope" data-admin-for="bio"></admin-buttons>
+<p class="description ng-binding">In this day and age when pop-rock, boy bands, and hip hop dominate the airwaves and music television, Lethal By Default's thick blend of brains and brawn is giving the hard rock and heavy metal scene a much needed charge. ...</p>
+<div class="mt1">
+<a class="bold text-white ng-scope" data-display="modal" data-rn="bio" data-url="/page_object/page_object_bio_popup/Artist_1099191?field_label=Bio" href="#">
+       Read More
+      </a>
+</div>
+</div>
+</div>
+</div>
+<div class="profile_fan_controls">
+<div class="mb2 profile-sidebar-module profile-sidebar-module--border">
+<become-fan-button data-primary="true"><a class="mb0 button ng-binding ng-scope button--primary rn-off" data-display="modal" data-method="post" data-url="/artist/become_fan/1099191" title="Become a Fan of this Artist">
+   Become A Fan
+</a>
+</become-fan-button>
+<share-button type="sidebar"><div class="share_artist_btn ng-scope">
+<button class="button button--glass--solid button--glass--solid--black" data-display="modal" data-modal="current" data-rn="share" data-share="/page_object/share_page_object/artist_1099191" data-url="/page_object/share_page_object/artist_1099191" href="javascript:;" rel="nofollow">
+<i class="icon-fa icon-share"></i>
+</button>
+</div></share-button>
+<div class="msg_artist_btn ng-scope">
+</div>
+</div>
+</div>
+<div class="ng-scope"><section class="music-stats profile-sidebar-module ng-scope">
+<div class="ng-scope">
+<div class="ng-scope">
+<div class="row">
+<div class="small-6 columns">
+<span class="text-white larger">Song Plays </span>
+</div>
+<div class="small-6 columns">
+<span class="ml6 ng-binding">333</span>
+</div>
+</div>
+</div>
+</div>
+<div class="mt2 ng-scope">
+<div class="row">
+<div class="small-6 columns">
+<span class="text-white larger">Songs </span>
+</div>
+<div class="small-6 columns">
+<span class="ml6 ng-binding">4</span>
+</div>
+</div>
+</div>
+</section>
+</div>
+<div class="ng-scope">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="show-for-small-only ng-scope">
+<div class="row pt2 bg-white">
+<div class="columns ng-scope">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="hide ng-scope">
+<div class="ng-isolate-scope library_event_handler" data-event-listener="reverb:library:add, reverb:library:remove" data-library-event-handler=""></div>
+<div class="ng-isolate-scope song_event_handler" data-event-listener="reverb:song:update" data-song-event-handler=""></div>
+<div class="ng-isolate-scope photo_event_handler cover_photo_event_handler" data-event-listener="reverb:photo:upload, reverb:cover_photo:saved" data-photo-event-handler=""></div>
+<div class="ng-isolate-scope video_event_handler" data-event-listener="reverb:video:add, reverb:video:added_videos" data-video-event-handler=""></div>
+<div class="ng-isolate-scope comment_event_handler fan_event_handler status_event_handler socialsync_event_handler" data-community-event-handler="" data-event-listener="reverb:comment:post, reverb:fan:became_fan, reverb:status:update, reverb:socialsync:update"></div>
+<div class="ng-isolate-scope artist_profile_configuration_event_handler" data-config-event-handler="" data-event-listener="reverb:artist_profile_configuration:update"></div>
+<div class="ng-isolate-scope artist_profile_event_handler" data-admin-event-handler="" data-event-listener="reverb:artist_profile:fan_view"></div>
+<div class="ng-isolate-scope musician_event_handler" data-event-listener="reverb:musician:add_member" data-member-event-handler=""></div>
+<div class="ng-isolate-scope location_event_handler" data-event-listener="reverb:location:validated" data-location-event-handler=""></div>
+</div>
+</div>
+</div>
+<div class="artist_profile_event_handler" id="artist_profile_handler_985331"></div></div>
+<div class="hidden">
+</div>
+</div>
+</div>
+</div>
+<div class="zurbify distraction--always canvas no-touch rgba backgroundsize borderradius boxshadow opacity cssanimations cssgradients csstransforms csstransforms3d fontface svg placeholder svgfilters pointerevents cssfilters mediaqueries bgsizecover no-stock_android_browser" id="foundation_page_footer">
+<div class="footer-push"></div>
+<div class="footer">
+<div class="wrap wrap--full bg-white py3 responsive-background">
+<div class="row my2-for-medium-up">
+<div class="small-12 medium-7 large-6 columns">
+<ul class="inline-list inline-list--chunky-bottom mb0">
+<li><span class="fw700">Tools For:</span></li>
+<li><a class="rn-off">Artists</a></li>
+<li><a class="rn-off"><span>Music </span>Industry</a></li>
+<li><a class="rn-off">Fans</a></li>
+<li><a class="rn-off">Venues</a></li>
+</ul>
+</div>
+<div class="small-12 medium-5 large-6 columns text-right-for-medium-up social-links footer-social">
+<div class="mb0 ml0 mt3 mt0-for-medium-up social-links">
+<a class="social-links__link social-links__link--rn-blog rn-off">
+</a>
+<a class="social-links__link social-links__link--facebook rn-off">
+<i class="icon-fa icon-facebook"></i>
+</a>
+<a class="social-links__link social-links__link--twitter rn-off">
+<i class="icon-fa icon-twitter"></i>
+</a>
+<a class="social-links__link social-links__link--youtube rn-off">
+<i class="icon-fa icon-youtube-play"></i>
+</a>
+<a class="social-links__link social-links__link--instagram rn-off">
+<i class="icon-fa icon-instagram"></i>
+</a>
+<a class="social-links__link social-links__link--pinterest rn-off">
+<i class="icon-fa icon-pinterest"></i>
+</a>
+</div>
+</div>
+</div>
+</div>
+<div class="wrap wrap--full wrap--no-margin bg-black pt3 pb6 responsive-background">
+<div class="row my2-for-medium-up">
+<div class="small-12 columns">
+<div class="row hide-for-small-only">
+<div class="medium-4 large-2 columns mb3-for-medium-only">
+<h6 class="text-sullivanBlue fw500">ReverbNation</h6>
+<ul class="footer-links">
+<li><a class="rn-off">Blog</a></li>
+<li><a class="rn-off">Careers</a></li>
+<li><a class="rn-off">Need Help?</a></li>
+<li><a class="rn-off">Forgot Password</a></li>
+<li><a class="rn-off">CONNECT</a></li>
+<li> </li>
+<li> </li>
+</ul>
+</div>
+<div class="medium-4 large-2 columns mb3-for-medium-only">
+<h6 class="text-sullivanBlue fw500">Artist Membership</h6>
+<ul class="footer-links">
+<li><a class="rn-off">Overview</a></li>
+<li><a class="rn-off">Pricing</a></li>
+<li><a class="rn-off">Feature Index</a></li>
+<li> </li>
+<li> </li>
+<li> </li>
+<li> </li>
+<li> </li>
+</ul>
+</div>
+<div class="medium-4 large-2 columns mb3-for-medium-only">
+<h6 class="text-sullivanBlue fw500">Artist Development</h6>
+<ul class="footer-links">
+<li><a class="rn-off">Opportunity Submissions</a></li>
+<li><a class="rn-off">Gig Finder</a></li>
+<li> </li>
+<li> </li>
+<li> </li>
+<li> </li>
+<li> </li>
+</ul>
+</div>
+<div class="medium-4 large-3 columns mb3-for-medium-only">
+<h6 class="text-sullivanBlue fw500">Artist Tools</h6>
+<ul class="footer-links">
+<li><a class="rn-off">Advertise on Music Sites</a></li>
+<li><a class="rn-off">Sponsored Artists</a></li>
+<li><a class="rn-off">Digital Distribution</a></li>
+<li><a class="rn-off">Sell Direct</a></li>
+<li><a class="rn-off">Fan Reach</a></li>
+<li><a class="rn-off">Site Builder</a></li>
+<li><a class="rn-off">Marketplace</a></li>
+<li><a class="rn-off">Publishing Administration</a></li>
+</ul>
+</div>
+<div class="medium-4 large-3 columns mb3-for-medium-only end">
+<h6 class="text-sullivanBlue fw500">Policies</h6>
+<ul class="footer-links">
+<li><a class="rn-off">Terms &amp; Conditions</a></li>
+<li><a class="rn-off">Privacy</a></li>
+<li><a class="rn-off"><span class="nowrap">Your California Privacy Rights</span></a></li>
+<li><a class="rn-off">Copyright</a></li>
+<li><a class="rn-off">Trademark</a></li>
+<li><a class="rn-off">Refunds</a></li>
+<li><a class="rn-off">Abuse</a></li>
+<li> </li>
+</ul>
+</div>
+</div>
+<div class="row show-for-small-only">
+<div class="small-12 columns">
+<dl class="accordion accordion--footer-links" data-accordion="">
+<dd class="accordion-navigation">
+<a class="accordion--footer-links__header text-sullivanBlue rn-off"><h6 class="text-sullivanBlue fw500">ReverbNation</h6></a>
+<div class="content" id="navLinks0">
+<ul class="footer-links">
+<li><a class="rn-off">Blog</a></li>
+<li><a class="rn-off">Careers</a></li>
+<li><a class="rn-off">Need Help?</a></li>
+<li><a class="rn-off">Forgot Password</a></li>
+<li><a class="rn-off">CONNECT</a></li>
+</ul>
+</div>
+</dd>
+<dd class="accordion-navigation">
+<a class="accordion--footer-links__header text-sullivanBlue rn-off"><h6 class="text-sullivanBlue fw500">Artist Membership</h6></a>
+<div class="content" id="navLinks1">
+<ul class="footer-links">
+<li><a href="index.html">Overview</a></li>
+<li><a class="rn-off">Pricing</a></li>
+<li><a class="rn-off">Feature Index</a></li>
+</ul>
+</div>
+</dd>
+<dd class="accordion-navigation">
+<a class="accordion--footer-links__header text-sullivanBlue rn-off"><h6 class="text-sullivanBlue fw500">Artist Development</h6></a>
+<div class="content" id="navLinks2">
+<ul class="footer-links">
+<li><a class="rn-off">Opportunity Submissions</a></li>
+<li><a class="rn-off">Gig Finder</a></li>
+</ul>
+</div>
+</dd>
+<dd class="accordion-navigation">
+<a class="accordion--footer-links__header text-sullivanBlue rn-off"><h6 class="text-sullivanBlue fw500">Artist Tools</h6></a>
+<div class="content" id="navLinks3">
+<ul class="footer-links">
+<li><a class="rn-off">Advertise on Music Sites</a></li>
+<li><a class="rn-off">Sponsored Artists</a></li>
+<li><a class="rn-off">Digital Distribution</a></li>
+<li><a class="rn-off">Sell Direct</a></li>
+<li><a class="rn-off">Fan Reach</a></li>
+<li><a class="rn-off">Site Builder</a></li>
+<li><a class="rn-off">Marketplace</a></li>
+<li><a class="rn-off">Publishing Administration</a></li>
+</ul>
+</div>
+</dd>
+<dd class="accordion-navigation">
+<a class="accordion--footer-links__header text-sullivanBlue rn-off"><h6 class="text-sullivanBlue fw500">Policies</h6></a>
+<div class="content" id="navLinks4">
+<ul class="footer-links">
+<li><a class="rn-off">Terms &amp; Conditions</a></li>
+<li><a class="rn-off">Privacy</a></li>
+<li><a class="rn-off"><span class="nowrap">Your California Privacy Rights</span></a></li>
+<li><a class="rn-off">Copyright</a></li>
+<li><a class="rn-off">Trademark</a></li>
+<li><a class="rn-off">Refunds</a></li>
+<li><a class="rn-off">Abuse</a></li>
+</ul>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+<hr class="mt2 mb3 mt1-for-medium-only mt3-for-large-up mb5-for-medium-up bg-midnightDarkAccent hr--dark"/>
+<div class="row">
+<div class="small-12 columns text-white">
+<p class="mb2">
+<span title="v.production-fca6c6f53e70b2b7c3615a2d5c0998f15b67b19d Build timestamp: 2026-11-23 02:10:39 AM EST unicorn-deployment-ccddf7f6d-ff2k7 - RAILS 4.2.11">©</span> 2006-2026 BandLab Singapore Pte. Ltd.
+              </p>
+<p class="text-tiny dim mb0">All third party trademarks are the property of the respective trademark owners. ReverbNation is not affiliated with those trademark owners.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="rnp" hidden="" id="rnp">
+<div class="rnp__in">
+<div class="rnp__vol"><button aria-label="Volume" class="rnp__ib" id="rnpMute"><i class="icon-fa icon-volume-up"></i></button><input aria-label="Volume" id="rnpVol" max="100" min="0" type="range" value="80"/></div>
+<div class="rnp__ctl">
+<button aria-label="Previous" class="rnp__ib" id="rnpPrev"><i class="icon-fa icon-step-backward"></i></button>
+<button aria-label="Play/Pause" class="rnp__ib rnp__play" id="rnpPlay"><i class="icon-fa icon-play"></i></button>
+<button aria-label="Next" class="rnp__ib" id="rnpNext"><i class="icon-fa icon-step-forward"></i></button>
+</div>
+<img alt="" class="rnp__art" id="rnpArt" src="img/orig/2-19-111_1299724259_small.jpg"/>
+<div class="rnp__mid">
+<div class="rnp__title" id="rnpTitle"> </div>
+<div class="rnp__artist">Lethal By Default</div>
+<div class="rnp__bar" id="rnpBar"><div class="rnp__fill" id="rnpFill"></div><div class="rnp__knob" id="rnpKnob"></div></div>
+</div>
+<div class="rnp__time" id="rnpTime">0:00</div>
+<button aria-label="Queue" class="rnp__ib" id="rnpList"><i class="icon-fa icon-bars"></i></button>
+</div>
+</div>
+<div class="rn-modal" hidden="" id="rnModal"><div class="rn-modal__box"><button aria-label="Close" class="rn-modal__x" id="rnModalX">×</button><div id="rnModalBody"></div></div></div>
+<div class="rn-toast" hidden="" id="rnToast"></div>
+<script src="assets/js/config.js"></script>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/rn.js"></script>
+</body>
+</html>
